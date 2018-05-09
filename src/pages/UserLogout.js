@@ -6,6 +6,7 @@ class LogOutUser extends Component {
 
 	logOutUser(){
 		let at = sessionStorage.getItem("accessToken");
+		
 		axios.request({
 			method: 'post',
 			url: config.url + `/api/userData/logout?access_token=${at}`
