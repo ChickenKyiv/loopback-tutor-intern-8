@@ -7,6 +7,9 @@ import Header from './Components/Header/Header.js';
 class App extends Component {
 
   render() {
+
+    // console.log(process.env.REACT_APP_SECRET_ONE)
+
     return (
       <div className="App">
         <Header / >
