@@ -5,23 +5,20 @@ class Plans extends Component {
 
 	constructor(props) {
 		super(props)
-		this.state = {
-			interval: 'month',
-			amount: '4'
+		this.state = {	//set the state as default plan you gave in radio button
+			plan: 'plan_CpWxWWGBjNUSmR'
 		}
 	}
 
 	setValue(e) {
-		if(e.target.value === "4"){
+		if(e.target.value === "4"){//monthly
 			this.setState({
-				interval: 'month',
-				amount: 4
+				plan: 'plan_CpWxWWGBjNUSmR'
 			})
 		}
-		else if(e.target.value === "25"){
+		else if(e.target.value === "25"){//yearly
 			this.setState({
-				interval: 'year',
-				amount: 25
+				plan: 'plan_CpWy97TShxsfFK'
 			})
 		}
 			
@@ -31,7 +28,7 @@ class Plans extends Component {
 	}
 
 	getValue (){
-		return this.state.interval+" "+this.state.amount
+		return this.state.plan
 	}
 
 	render () {
@@ -49,7 +46,7 @@ class Plans extends Component {
 				    $25/year
 				  </label>
 				</div>
-				<Checkout amount={this.state.amount} interval={this.state.interval} />
+				<Checkout plan={this.state.plan} />
 			</div>
 
 		);

@@ -6,17 +6,17 @@ import StripeCheckout from 'react-stripe-checkout';
 
 class Checkout extends Component {
   onToken = (token) => {
-  	console.log('onToken',token, 'amount:', this.props.amount, 'interval:', this.props.interval)
+  	//console.log('onToken',token, 'amount:', this.props.amount, 'plan:', this.props.plan)
     fetch(config.url + '/stripe-token', {
       method: 'POST',
       headers: {
       	Accept: 'application/json',
       	'Content-type': 'application/json'
       },
-      body: JSON.stringify({stripeToken: token.id, amount: this.props.amount, interval: this.props.interval}),
+      body: JSON.stringify({stripeToken: token.id, plan: this.props.plan, email: token.card.email}),
     }).then(response => {
       response.json().then(data => {
-      	console.log(data)
+      //	console.log(data)
         alert(`We are in business, ${data.email}`);
       });
     });
