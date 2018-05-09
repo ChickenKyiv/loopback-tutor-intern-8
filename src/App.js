@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Main from './Components/Main'
 //import Navbar from './Components/Navbar'
 import './styles/App.css';
-import Header from './Components/header.js';
+import Header from './Components/Header.js';
 
 class App extends Component {
 
