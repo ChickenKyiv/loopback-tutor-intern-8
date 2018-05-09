@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import loadCart from '../helpers/loadCart'
 import axios from 'axios'
+import config from '../utils/config.json'
 
 class Cart extends Component {
 
@@ -13,7 +14,7 @@ class Cart extends Component {
 	}
 
 	getItems() {
-		axios.get('http://localhost:3000/cart')
+		axios.get(config.url + '/cart')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}

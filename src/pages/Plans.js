@@ -40,13 +40,13 @@ class Plans extends Component {
 				<div className="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="4" onChange={this.setValue.bind(this)} defaultChecked />
-				    $4
+				    $4/month
 				  </label>
 				</div>
 				<div className="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios2" onChange={this.setValue.bind(this)} value="25" />
-				    $25
+				    $25/year
 				  </label>
 				</div>
 				<Checkout amount={this.state.amount} interval={this.state.interval} />

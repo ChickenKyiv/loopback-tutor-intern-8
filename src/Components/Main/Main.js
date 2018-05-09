@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
-import acc from '../pages/Authacc';
-import Cart from '../pages/Cart';
-import Checkout from '../pages/Checkout';
-import ChangePassword from '../pages/ChangePassword';
-import ChangePasswordResponse from '../pages/ChangePasswordResponse';
-import Home from '../pages/Home';
-import ForgotPassword from '../pages/ForgotPassword';
-import MySubscriptions from '../pages/MySubscriptions';
-import NewUser from '../pages/NewUser';
-import p404 from '../pages/Page404';
-import ResetPasswordResponse from '../pages/ResetPasswordResponse';
-import UserInfo from '../pages/UserInfo';
-import UserLogin from '../pages/UserLogin';
-import UserLogout from '../pages/UserLogout';
-import Verified from '../pages/Verified';
-import Verify from '../pages/Verify';
-import InviteForm from '../pages/InviteForm';
+import acc from '../../pages/Authacc';
+import Cart from '../../pages/Cart';
+import Checkout from '../../pages/Checkout';
+import ChangePassword from '../../pages/ChangePassword';
+import ChangePasswordResponse from '../../pages/ChangePasswordResponse';
+import Home from '../../pages/Home';
+import ForgotPassword from '../../pages/ForgotPassword';
+import MySubscriptions from '../../pages/MySubscriptions';
+import NewUser from '../../pages/NewUser';
+import p404 from '../../pages/Page404';
+import ResetPasswordResponse from '../../pages/ResetPasswordResponse';
+import UserInfo from '../../pages/UserInfo';
+import UserLogin from '../../pages/UserLogin';
+import UserLogout from '../../pages/UserLogout';
+import Verified from '../../pages/Verified';
+import Verify from '../../pages/Verify';
+import InviteForm from '../../pages/InviteForm';
 
 
 
