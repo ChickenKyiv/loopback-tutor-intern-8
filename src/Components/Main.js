@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import acc from '../pages/Authacc';
 import Cart from '../pages/Cart';
+import Checkout from '../pages/Checkout';
 import ChangePassword from '../pages/ChangePassword';
 import ChangePasswordResponse from '../pages/ChangePasswordResponse';
 import Home from '../pages/Home';
 import ForgotPassword from '../pages/ForgotPassword';
+import MySubscriptions from '../pages/MySubscriptions';
 import NewUser from '../pages/NewUser';
 import p404 from '../pages/Page404';
 import ResetPasswordResponse from '../pages/ResetPasswordResponse';
@@ -27,9 +29,11 @@ class Main extends Component {
 					<Route exact path="/" component={Home} />
 					<Route path="/auth/account" component={acc} />
 					<Route path="/cart" component={Cart} />
+					<Route path="/checkout" component={Checkout} />
 					<Route path="/reset" component={ChangePassword} />
 					<Route path="/changeresponse" component={ChangePasswordResponse} />
 					<Route path="/forgot" component={ForgotPassword} />
+					<Route path="/mysub" component={MySubscriptions} />
 					<Route path="/adduser" component={NewUser} />
 					<Route path="/resetresponse" component={ResetPasswordResponse} />
 					<Route path="/profile" component={UserInfo} />

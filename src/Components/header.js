@@ -7,13 +7,13 @@ class Header extends Component{
 	     <nav className="navbar navbar-default">
 		  <div className="container-fluid">
 		    <div className="navbar-header">
-		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="/linkbs-example-navbar-collapse-1" aria-expanded="false">
 		        <span className="sr-only">Toggle navigation</span>
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-		      <a className="navbar-brand" href="#"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
+		      <a className="navbar-brand" href="/link"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
 		    </div>
 
 
@@ -21,15 +21,15 @@ class Header extends Component{
 		      <ul className="nav navbar-nav">
 		        <li className="active"><a href="/">Home <span className="sr-only">(current)</span></a></li>
 		        <li className="dropdown">
-		          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span className="caret"></span></a>
+		          <a href="/link" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span className="caret"></span></a>
 		          <ul className="dropdown-menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="/link">Action</a></li>
+		            <li><a href="/link">Another action</a></li>
+		            <li><a href="/link">Something else here</a></li>
 		            <li role="separator" className="divider"></li>
-		            <li><a href="#">Separated link</a></li>
+		            <li><a href="/link">Separated /link</a></li>
 		            <li role="separator" className="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li><a href="/link">One more separated link</a></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -54,13 +54,13 @@ class Header extends Component{
         <nav className="navbar navbar-default">
 		  <div className="container-fluid">
 		    <div className="navbar-header">
-		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="linkbs-example-navbar-collapse-1" aria-expanded="false">
 		        <span className="sr-only">Toggle navigation</span>
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-              <a className="navbar-brand" href="#"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
+              <a className="navbar-brand" href="/link"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
 		    </div>
 
 
@@ -68,15 +68,15 @@ class Header extends Component{
 		      <ul className="nav navbar-nav">
 		        <li className="active"><a href="/">Home <span className="sr-only">(current)</span></a></li>
 		        <li className="dropdown">
-		          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span className="caret"></span></a>
+		          <a href="/link" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span className="caret"></span></a>
 		          <ul className="dropdown-menu">
-		            <li><a href="#">Action</a></li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="/link">Action</a></li>
+		            <li><a href="/link">Another action</a></li>
+		            <li><a href="/link">Something else here</a></li>
 		            <li role="separator" className="divider"></li>
-		            <li><a href="#">Separated link</a></li>
+		            <li><a href="/link">Separated link</a></li>
 		            <li role="separator" className="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li><a href="/link">One more separated link</a></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -89,11 +89,11 @@ class Header extends Component{
 		      <ul className="nav navbar-nav navbar-right">
 		        <li><a href="/cart">Shopping Basket</a></li>
 		        <li className="dropdown">
-		          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Account <span className="caret"></span></a>
+		          <a href="/link" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Account <span className="caret"></span></a>
 		          <ul className="dropdown-menu">
 		            <li><a href="/profile">My Profile</a></li>
-		            <li><a href="#">My Orders</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="/link">My Orders</a></li>
+		            <li><a href="/mysub">My Subscription</a></li>
 		            <li role="separator" className="divider"></li>
 		            <li><a href="/logout">Log Out</a></li>
 		          </ul>

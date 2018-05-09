@@ -12,12 +12,10 @@ class Authacc extends Component{
 
 	componentDidMount(){
 		axios.get(config.url + '/userstatus')
-		.then(response => {
-			if(response !== null){
-				console.log("This came->" + JSON.stringify(response))
+ 		.then(response => {
+				console.log("You are logged in", JSON.stringify(response))
 				this.setState({userdata: response.data})
 				console.log("state"+ this.state.userdata)
-			}
 		}).catch(err => console.log(err))
 	}
 

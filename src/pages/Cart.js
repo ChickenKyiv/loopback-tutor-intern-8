@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import loadCart from '../helpers/loadCart'
+//import loadCart from '../helpers/loadCart'
 import axios from 'axios'
 
 class Cart extends Component{

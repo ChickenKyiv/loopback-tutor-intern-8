@@ -1,3 +1,4 @@
 {
-  "url": "https://loopback-react-account.herokuapp.com"
+  "url": "https://loopback-react-account.herokuapp.com",
+  "localurl":"http://localhost:3000" 
 }
