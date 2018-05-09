@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import  { Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import { API_ROOT } from '../utils/api-config-sample'
+import axios from 'axios'
+
 var config = require('../utils/config.json');
 
+
+
 class InviteForm extends Component {
+
+	// not sure if it works :0
+	generateUrl (accessToken) => { API_ROOT + `/api/userData/invite?access_token=${accessToken}` }
 
 	send (e){
 		e.preventDefault();
@@ -33,19 +40,20 @@ class InviteForm extends Component {
 
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === true){
+		if( check === true ){
 			return (
 				<div>
 					<h4> Please enter your friend's email</h4>
+
 					<form onSubmit={this.send.bind(this)} >
 						<input type="email" name="email" ref="email" id="email" />
 						<input type="submit" value="Send email" />
 					</form>
 				</div>
 			);
-		}
-		else{
+		} else {
 			console.log("you need to login first");
+			//@todo add raven here. maybe we'll need to update this block. i just didn't like this way. it's not juicy
 		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
