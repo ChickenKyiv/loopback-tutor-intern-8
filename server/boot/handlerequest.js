@@ -24,6 +24,46 @@ var stripe = require('stripe')("sk_test_XEZV6072P6OvYs3uLcXLSeTF");
 module.exports = function(handle) {
 
 	handle.post('/stripe-token', function(req, res, next){
+//For subscription
+		//console.log("user:"+req.user+"\n");
+		const token = req.body.stripeToken;
+		//const amt = req.body.amount;//amount can be used for one time purchase
+		const email = req.body.email;//email given by user to stripe
+		const planName = req.body.plan;//id which is generated in stripe
+		stripe.customers.create({
+			email: email,
+			source: token,
+		}, function (err, customer) {
+			if(err){
+				console.log(err);
+				res.send({success: false, message: 'error'});
+			}
+			else{
+				console.log("customer:"+ JSON.stringify(customer)+"\n");
+				stripe.subscriptions.create({
+					customer: customer.id,
+					items: [{
+						plan: planName,
+						quantity: 1,
+					}]
+				}, function(err, subscription) {
+				// asynchronously called
+					if(err){
+					console.log(err);
+					res.send({success: false, message: 'error'});
+					}
+					else{
+						console.log("subscription:"+JSON.stringify(subscription)+"\n");
+						res.send({success: true, message: 'sub success', email: email});
+					}
+				});
+			}
+		});
+	});
+
+/*
+========Charge customer for once========
+	handle.post('/stripe-token', function(req, res, next){
 		const token = req.body.stripeToken;
 		const amt = req.body.amount;
 		console.log(req.body);
@@ -43,7 +83,7 @@ module.exports = function(handle) {
 			}
 		});
 	});
-
+*/
 	handle.get('/userstatus', function(req, res, next){
 	//	res.json(req.user);JSON.stringify(req.user)
 		if(req.user){
