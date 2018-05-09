@@ -89,14 +89,14 @@ app.use(
 );
 
 //check if user is logged in or not
+
+
+/*==Implement if failure messages do not work in react==*/
 app.get('*', function(req, res, next) {
   res.locals.user = req.user || null;
   res.locals.session = req.session;
   next();
 });
-
-/*==Implement if failure messages do not work in react==*/
-
 
 app.get('/', function(req, res, next) {
   res.render('pages/login', {
