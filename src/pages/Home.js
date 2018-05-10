@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import config from '../utils/config.json'
+//import config from '../utils/config.json'
 import axios from 'axios'
 
 class Home extends Component {
 
 	addToCart () {
-		axios.get(config.url + '/add-to-cart')
+		axios.get(/*config.url + */'/add-to-cart')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}

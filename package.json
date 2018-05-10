@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://groceristar.netlify.com/",
   "dependencies": {
     "axios": "^0.18.0",
     "flow-bin": "^0.72.0",
@@ -24,5 +23,6 @@
     "build-windows": "npm install preact-cli && preact build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "https://loopback-react-account.herokuapp.com"
 }

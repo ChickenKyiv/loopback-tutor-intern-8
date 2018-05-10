@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-var config = require('../utils/config.json');
+// var config = require('../utils/config.json');
 
 class UsersInfo extends Component {
 
@@ -27,7 +27,7 @@ class UsersInfo extends Component {
 			let accessToken = sessionStorage.getItem("accessToken");
 			axios.request({
 				method: 'delete',
-				url: config.url + `/api/userData/${userId}?access_token=${accessToken}`
+				url: /*config.url + */`/api/userData/${userId}?access_token=${accessToken}`
 			}).then(response => {
 				console.log(response)
 				sessionStorage.removeItem("accessToken");
@@ -67,7 +67,7 @@ class UsersInfo extends Component {
 	save() {
 		let userId = sessionStorage.getItem("userId");
 		let accessToken = sessionStorage.getItem("accessToken");
-		let updateurl = config.url + `/api/userData/${userId}?access_token=${accessToken}`;
+		let updateurl = /*config.url + */`/api/userData/${userId}?access_token=${accessToken}`;
 		let user = {
 			"firstName": this.refs.fname.value,
 			"lastName": this.refs.lname.value
@@ -90,7 +90,7 @@ class UsersInfo extends Component {
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',
-			url: config.url + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+			url: /*config.url + */`/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
 			data: {
 				email: this.refs.email.value,
 				user: this.state.userdata
@@ -110,7 +110,7 @@ class UsersInfo extends Component {
 		let accessToken = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
 		//console.log(userId);
-		axios.get(config.url + `/api/userData/${userId}?access_token=${accessToken}`)
+		axios.get(/*config.url + */`/api/userData/${userId}?access_token=${accessToken}`)
 		.then(response => {
 			this.setState({userdata: response.data})
 			sessionStorage.setItem("email",response.data.email);
