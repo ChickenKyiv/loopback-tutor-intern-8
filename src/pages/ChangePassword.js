@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { API_ROOT } from '../utils/api-config-sample'
 
 import axios from 'axios';
@@ -16,11 +16,17 @@ class ChangePassword extends Component {
 			alert("Passwords do not match");
 	}
 
+	getStatus () {
+		return API_ROOT + `/userstatus`
+	}
+
 	reset (e){
 		//@todo move all api urls into one file too., because it's too messy right now
 		e.preventDefault();
+		//@todo can we move AT variable? will this improve structure?
 		let accessToken = sessionStorage.getItem("accessToken");
-		console.log("entered pass is: "+this.refs.password.value + ", entered cpass is: "+this.refs.cpassword.value)
+		console.log( "entered pass is: " + this.refs.password.value +
+		", entered cpass is: " + this.refs.cpassword.value )
 		axios.request({
 			method: 'post',
 			url: config.url + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in
