@@ -17,7 +17,6 @@ class Home extends Component {
 				<div className="row">
 					<div className="col-sm-6 col-md-4">
 						<div className="thumbnail">
-						<img src="img.jpg" alt="img.jpg"/>
 						<div className="caption">
 							<h3>Thumbnail label</h3>
 							<p>Description about product</p>

@@ -32,10 +32,12 @@ class LogInUser extends Component {
 			//console.log("Token:"+sessionStorage.getItem("accessToken"));
 			this.props.history.push('/profile');//push the page you want to display
 		}).catch(err => {
-			if(err.response){
+			if(err.response.data.error.message){
 				alert(err.response.data.error.message)
 				console.log(err.response.data.error.message)
 			}
+			else if(err.response)
+				console.log(err.response)
 			else
 				console.log(err + "Error at login verification")
 		});
