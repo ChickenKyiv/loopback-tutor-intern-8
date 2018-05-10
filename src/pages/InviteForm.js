@@ -10,11 +10,15 @@ var config = require('../utils/config.json');
 class InviteForm extends Component {
 
 	// not sure if it works :0
-	generateUrl (accessToken) => { API_ROOT + `/api/userData/invite?access_token=${accessToken}` }
+	// generateUrl = (accessToken) => { API_ROOT + `/api/userData/invite?access_token=${accessToken}` }
+	generateUrl (accessToken) {
+		// @todo i still don't like this long line, but not sure if it can be improved well right now
+			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
+	}
 
 	send (e){
 		e.preventDefault();
-		console.log("entered email is: "+this.refs.email.value)
+		console.log("entered email is: " + this.refs.email.value )
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',

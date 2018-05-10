@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
+import { API_ROOT } from '../utils/api-config-sample'
+
+import axios from 'axios';
+
 var config = require('../utils/config.json');
 
 class ChangePassword extends Component {
@@ -14,6 +17,7 @@ class ChangePassword extends Component {
 	}
 
 	reset (e){
+		//@todo move all api urls into one file too., because it's too messy right now
 		e.preventDefault();
 		let accessToken = sessionStorage.getItem("accessToken");
 		console.log("entered pass is: "+this.refs.password.value + ", entered cpass is: "+this.refs.cpassword.value)
@@ -36,6 +40,7 @@ class ChangePassword extends Component {
 //method="post" action="http://localhost:3000/reset-password"
 	render() {
 
+		//@todo can we move this outside? i don't like this structure with if -> return - else - message
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 		if(check === true){
 			return (

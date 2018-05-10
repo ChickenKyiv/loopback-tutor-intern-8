@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 
 class CardForm extends Component  {
+
 	isMaxLen (next, e) {
 		if (e.target.value.length === 4) {
     		document.getElementById(next).focus();
@@ -61,6 +62,7 @@ class CardForm extends Component  {
 		return (
 			<div>
 			<h1> This is checkout form </h1>
+			
 			<form id="checkout-form" method="post">
 			  <div className="form-group">
 			    <label>Card holders name</label>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import loadCart from '../helpers/loadCart'
-import axios from 'axios'
+import { API_ROOT } from '../utils/api-config-sample'
+import axios  from 'axios'
 import config from '../utils/config.json'
 
 class Cart extends Component {
@@ -11,6 +12,12 @@ class Cart extends Component {
 			quantity: 0
 		}
 
+	}
+	getItems2() {
+		axios.get(API_ROOT + '/cart')
+		.then(response => console.log(response.data))
+		.catch(err => console.log(err))
+		//@todo add raven
 	}
 
 	getItems() {
