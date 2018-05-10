@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+// <Link to="/about">About</Link>
 
 class Header extends Component {
 

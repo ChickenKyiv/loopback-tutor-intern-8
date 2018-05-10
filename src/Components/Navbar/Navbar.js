@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class Navbar extends Component{
+// <Link to="/about">About</Link>
+
+class Navbar extends Component {
+
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 			if(check === true){
