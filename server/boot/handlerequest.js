@@ -88,8 +88,10 @@ module.exports = function(handle) {
 	//	res.json(req.user);JSON.stringify(req.user)
 		if(req.user){
 			let username = req.user.id;
-			console.log("Req.user", username )
-			res.status(200).send(username)
+			console.log("Req.user", username );
+			res.status(200).send(username);
 		}
+		else
+			res.status(200).send("Please login");
 	});
 }
