@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { API_ROOT } from '../utils/api-config-sample'
-
 import axios from 'axios';
 
 var config = require('../utils/config.json');
@@ -16,20 +14,13 @@ class ChangePassword extends Component {
 			alert("Passwords do not match");
 	}
 
-	getStatus () {
-		return API_ROOT + `/userstatus`
-	}
-
 	reset (e){
-		//@todo move all api urls into one file too., because it's too messy right now
 		e.preventDefault();
-		//@todo can we move AT variable? will this improve structure?
-		let accessToken = sessionStorage.getItem("accessToken");
 		console.log( "entered pass is: " + this.refs.password.value +
 		", entered cpass is: " + this.refs.cpassword.value )
 		axios.request({
 			method: 'post',
-			url: config.url + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in
+			url: config.url + `/api/userData/reset-password${window.location.search}`,//?access_token=${this.props.params.access_token}`,
 			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
 		}).then(response => {
 			console.log(response.data);
@@ -42,13 +33,11 @@ class ChangePassword extends Component {
 		});
 
 	}
-//onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
-//method="post" action="http://localhost:3000/reset-password"
+
 	render() {
 
-		//@todo can we move this outside? i don't like this structure with if -> return - else - message
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === true){
+		if(check !== true){
 			return (
 				<div>
 					<form onSubmit={this.validate.bind(this)} >
@@ -68,10 +57,7 @@ class ChangePassword extends Component {
 		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
-
-
 	}
-
 }
 
 export default ChangePassword;

@@ -141,7 +141,7 @@ class UsersInfo extends Component {
 				<br />
 				<br />
 				<button onClick={this.edit.bind(this)}>Edit profile </ button>
-				<a href="/reset">Change password </ a>
+				<a href="/change">Change password </ a>
 				<br />
 				<button onClick={this.deleteAccount.bind(this)}>Delete account</button>
 			</div>
