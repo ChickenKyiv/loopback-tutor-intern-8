@@ -11,9 +11,11 @@ const setData = (state = {
 			state = action.payload;
 			console.log(state);
 			break;
+
 		case "ACCESS_RESET":
 			state = null;
 			break;
+			
 		default:
 			return state;
 	}
