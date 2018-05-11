@@ -9,13 +9,13 @@ const setUser = (state = {
 	switch( action.type ) {
 		case "USER_LOGGED_IN":
 			state = action.payload;
-			console.log("this executed "+state.firstName);
+			console.log("this executed " + state.firstName);
 			break;
 
 		case "USER_LOGGED_OUT":
 			state = null;
 			break;
-			
+
 		default:
 			return state;
 	}
