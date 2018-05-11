@@ -18,6 +18,12 @@ class ChangePassword extends Component {
 
 	getStatus () {
 		return API_ROOT + `/userstatus`
+		/api/userData/reset-password?access_token=${accessToken}
+	}
+	
+	generateUrl (accessToken) {
+		// @todo i still don't like this long line, but not sure if it can be improved well right now
+			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
 	}
 
 	reset (e){
@@ -33,8 +39,10 @@ class ChangePassword extends Component {
 			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
 		}).then(response => {
 			console.log(response.data);
+			// @todo replace that link with variable.
 			this.props.history.push('/changeresponse');
 		}).catch(err => {
+			//@todo add sentry
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at change password");
 			else

@@ -1,8 +1,8 @@
 const setData = (state = {
-	id: '',
-	ttl: '',
+	id:      '',
+	ttl:     '',
 	created: '',
-	userId: ''
+	userId:  ''
 	},
 	action) => {
 

@@ -16,12 +16,21 @@ class MySubscriptions extends Component {
 		this.setState({viewplans: true})
 	}
 
+	//@todo add variable that will display your current plan at h3
 	render() {
 		return (
 			<div>
-				<h1>MY Subscriptions</h1>
-				<h3>Your current plan is: free</h3>
-				<button  type="button" className="btn btn-primary" onClick={this.viewPlans.bind(this)}>Choose a new plan</button>
+				<h1>
+					MY Subscriptions
+				</h1>
+				<h3>
+					Your current plan is: free
+				</h3>
+				<button  type="button"
+				className="btn btn-primary"
+				onClick={this.viewPlans.bind(this)}>
+				Choose a new plan
+				</button>
 				{this.state.viewplans && <Plans />}
 			</div>
 		);

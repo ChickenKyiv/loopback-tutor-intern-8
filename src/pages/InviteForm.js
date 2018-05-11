@@ -34,6 +34,7 @@ class InviteForm extends Component {
 		//	console.log(response.data);
 			this.props.history.push('/users');
 		}).catch(err => {
+			//@todo add raven. add braces
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at sending invite");
 			else

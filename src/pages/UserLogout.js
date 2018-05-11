@@ -6,7 +6,7 @@ class LogOutUser extends Component {
 
 	logOutUser(){
 		let at = sessionStorage.getItem("accessToken");
-		
+
 		axios.request({
 			method: 'post',
 			url: /*config.url + */`/api/userData/logout?access_token=${at}`
@@ -15,10 +15,12 @@ class LogOutUser extends Component {
 			sessionStorage.removeItem("accessToken");
 			sessionStorage.removeItem("userId");
 			sessionStorage.removeItem("email");
+
 			sessionStorage.setItem("isLoggedIn", JSON.stringify(false));
 			console.log(sessionStorage.getItem("accessToken"));
 			this.props.history.push('/');
 		}).catch(err => {
+			//@todo add raven. add braces
 			if(err.response)
 				console.log(err.response.data.error.message + "Error in logging out user")
 			else

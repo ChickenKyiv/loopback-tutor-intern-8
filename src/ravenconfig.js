@@ -1,5 +1,8 @@
 import Raven from 'raven-js';
 
+// REACT_APP_SENTRY_KEY
+// REACT_APP_SENTRY_APP
+
 const sentry_key = '77aa2ee9a7ce484497f56278982a0809';
 const sentry_app = '305339';
 

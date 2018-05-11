@@ -6,16 +6,17 @@ import  { Redirect } from 'react-router-dom';
 class ForgotPassword extends Component {
 
 	reset (e){
-		console.log("entered email is: "+this.refs.email.value)
+		console.log("entered email is: " + this.refs.email.value)
 		axios.request({
 			method: 'post',
 			url: /*config.url + */'/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
-			data: {email: this.refs.email.value }//          reset link or call a different method to handle this
+			data: { email: this.refs.email.value }//          reset link or call a different method to handle this
 		}).then(response => {
 		//	console.log(response.data);
 		//	console.log("response received for email is: ")
 			this.props.history.push('/resetresponse');
 		}).catch(err => {
+			//add raven and add braces
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at password reset");
 			else
@@ -25,6 +26,7 @@ class ForgotPassword extends Component {
 	}
 //onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
 //method="post" action="http://localhost:3000/request-password-reset"
+//@todo i still don't like this way to understand if user logged in
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 		if(check !== true){
@@ -38,7 +40,7 @@ class ForgotPassword extends Component {
 				</div>
 			);
 		}
-		else{
+		else {
 			console.log("you cant be logged in to use this functionality");
 		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />

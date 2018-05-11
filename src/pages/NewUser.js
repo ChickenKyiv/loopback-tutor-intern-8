@@ -7,17 +7,17 @@ class NewUser extends Component {
 	onSubmit(e) {
 		//Take the form data
 		e.preventDefault();
-		if(this.refs.password.value === this.refs.cpassword.value){
+		if( this.refs.password.value === this.refs.cpassword.value ){
 			const newUser = {
-				email: this.refs.email.value,
-				firstName: this.refs.fname.value,//not required in base class
-				lastName: this.refs.lname.value,//not required in base class
-				password: this.refs.password.value,
-				username: this.refs.username.value
+				email     : this.refs.email.value,
+				firstName : this.refs.fname.value,//not required in base class
+				lastName  : this.refs.lname.value,//not required in base class
+				password  : this.refs.password.value,
+				username  : this.refs.username.value
 			}
 			this.addUser(newUser);
 		}
-		else{
+		else {
 			alert("passwords do not match");//try to implement it using flash messages
 			window.document.getElementById('cpassword').focus();
 		}
@@ -27,14 +27,16 @@ class NewUser extends Component {
 	addUser(newUser) {
 	//handle this part with backend method to verify the user email
 	//CALL TO ADD USER DATA IN DATABASE
+
 		axios.request({
-		method: 'post',
-		url: /*config.url + */'/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
-		data: newUser
+			method: 'post',
+			url: /*config.url + */'/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
+			data: newUser
 		}).then(respons => {
 		//	console.log("This is response-->>"+respons.data);//can get userId from this response object
 			this.props.history.push('/verify');//tell user to verify email first
 		}).catch(err => {
+			// add raven. and make code below better. looks not cool
 			if(err.response){
 				if(err.response.data.error.details.messages.email)
 					alert("email" + err.response.data.error.details.messages.email)
@@ -69,7 +71,8 @@ class NewUser extends Component {
 						<input type="password" name="password" ref="password" required />
 						<br />
 						<label>Confirm Password</ label>
-						<input type="password" name="cpassword" id="cpassword" ref="cpassword" required />
+						<input type="password" name="cpassword" id="cpassword"
+						ref="cpassword" required />
 						<input type="submit" value="Save" />
 					</form>
 				</div>

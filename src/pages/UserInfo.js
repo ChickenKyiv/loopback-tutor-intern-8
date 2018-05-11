@@ -17,14 +17,21 @@ class UsersInfo extends Component {
 		this.getUsersData();
 	}
 
+	generateUrl (accessToken) {
+		// @todo i still don't like this long line, but not sure if it can be improved well right now
+			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
+	}
+
 	deleteAccount (e){
 		e.preventDefault();
 		let del = window.confirm("Do you really want to delete your account? This is an irreversible process and"+
 		" you wont be able to access your data again");
+
 		if(del === true){
 			console.log("You clicked yes DELETE")
-			let userId = sessionStorage.getItem("userId");
+			let userId      = sessionStorage.getItem("userId");
 			let accessToken = sessionStorage.getItem("accessToken");
+
 			axios.request({
 				method: 'delete',
 				url: /*config.url + */`/api/userData/${userId}?access_token=${accessToken}`
@@ -36,6 +43,7 @@ class UsersInfo extends Component {
 				this.props.history.push('logout')
 			}).catch(err => {
 				console.log(err)
+				//@todo add raven
 			})
 		}
 		else

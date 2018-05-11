@@ -1,19 +1,21 @@
 const setUser = (state = {
 	firstName: '',
-	lastName: '',
-	email: '',
-	username: '',
-	id: ''
+	lastName:  '',
+	email:     '',
+	username:  '',
+	id:        ''
 }, action) => {
 
-	switch(action.type) {
+	switch( action.type ) {
 		case "USER_LOGGED_IN":
 			state = action.payload;
 			console.log("this executed "+state.firstName);
 			break;
+
 		case "USER_LOGGED_OUT":
 			state = null;
 			break;
+			
 		default:
 			return state;
 	}
