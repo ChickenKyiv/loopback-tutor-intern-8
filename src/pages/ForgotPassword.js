@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-//var config = require('../utils/config.json');
+var config = require('../utils/config.json');
 
 class ForgotPassword extends Component {
 
@@ -9,7 +9,7 @@ class ForgotPassword extends Component {
 		console.log("entered email is: "+this.refs.email.value)
 		axios.request({
 			method: 'post',
-			url: /*config.url + */'/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
+			url: config.url + '/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
 			data: {email: this.refs.email.value }//          reset link or call a different method to handle this
 		}).then(response => {
 		//	console.log(response.data);

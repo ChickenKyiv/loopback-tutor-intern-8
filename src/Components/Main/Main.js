@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
+import About from '../../pages/About';
 import acc from '../../pages/Authacc';
 import Cart from '../../pages/Cart';
 //import Checkout from '../../pages/Checkout';
@@ -28,6 +29,7 @@ class Main extends Component {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/auth/account" component={acc} />
+					<Route path="/about" component={About} />
 					<Route path="/cart" component={Cart} />
 					
 					<Route path="/reset" component={ChangePassword} />

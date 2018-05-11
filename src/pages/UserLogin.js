@@ -23,7 +23,7 @@ class LogInUser extends Component {
 	submitUser(user){
 		axios.request({
 			method: 'post',
-			url: '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
+			url: config.url + '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
 			sessionStorage.setItem("accessToken",response.data.id);

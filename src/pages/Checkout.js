@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import config from '../utils/config.json'
+import config from '../utils/config.json'
 import StripeCheckout from 'react-stripe-checkout';
 //import CardForm from './CardForm'
 //			<CardForm />
@@ -7,7 +7,7 @@ import StripeCheckout from 'react-stripe-checkout';
 class Checkout extends Component {
   onToken = (token) => {
   	//console.log('onToken',token, 'amount:', this.props.amount, 'plan:', this.props.plan)
-    fetch(/*config.url + */'/stripe-token', {
+    fetch(config.url + '/stripe-token', {
       method: 'POST',
       headers: {
       	Accept: 'application/json',

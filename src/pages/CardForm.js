@@ -1,5 +1,5 @@
+//Used stripe checkout instead of custom form
 import React, { Component } from 'react'
-
 
 class CardForm extends Component  {
 

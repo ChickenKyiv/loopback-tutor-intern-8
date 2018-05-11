@@ -16,13 +16,19 @@ class MySubscriptions extends Component {
 		this.setState({viewplans: true})
 	}
 
+	hidePlans () {
+		this.setState({viewplans: false})
+	}
+
 	render() {
 		return (
 			<div>
 				<h1>MY Subscriptions</h1>
 				<h3>Your current plan is: free</h3>
-				<button  type="button" className="btn btn-primary" onClick={this.viewPlans.bind(this)}>Choose a new plan</button>
+				{!this.state.viewplans && <button  type="button" className="btn btn-primary" onClick={this.viewPlans.bind(this)}>Choose a new plan</button>}
 				{this.state.viewplans && <Plans />}
+				<br />
+				{this.state.viewplans && <button  type="button" className="btn btn-primary" onClick={this.hidePlans.bind(this)}>Cancel</button>}
 			</div>
 		);
 	}

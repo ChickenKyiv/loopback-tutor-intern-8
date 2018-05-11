@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 // <Link to="/about">About</Link>
 
@@ -16,7 +16,7 @@ class Header extends Component {
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-		      <a className="navbar-brand" href="/link"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
+		      <a className="navbar-brand" href="/about" title="About Us"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
 		    </div>
 
 
@@ -63,7 +63,7 @@ class Header extends Component {
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-              <a className="navbar-brand" href="/link"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
+              <a className="navbar-brand" href="/about" title="About Us"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
 		    </div>
 
 
