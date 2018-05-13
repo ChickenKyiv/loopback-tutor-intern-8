@@ -18,7 +18,19 @@ import Verified from '../pages/Verified';
 import Verify from '../pages/Verify';
 import InviteForm from '../pages/InviteForm';
 
-
+// @todo use this sample as inspiration for making restircted pages
+// for route that should have been protected use this sample
+// ```
+//   <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
+// ```
+const authenticate = (nextState, replace) => {
+  if (!Meteor.loggingIn() && !Meteor.userId()) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname },
+    });
+  }
+};
 
 class Main extends Component {
 	render() {
@@ -30,13 +42,15 @@ class Main extends Component {
 					<Route path="/auth/account" component={acc} />
 					<Route path="/cart" component={Cart} />
 					<Route path="/checkout" component={Checkout} />
+					<Route path="/mysub" component={MySubscriptions} />
+					<Route path="/adduser" component={NewUser} />
+					<Route path="/profile" component={UserInfo} />
+					
 					<Route path="/reset" component={ChangePassword} />
 					<Route path="/changeresponse" component={ChangePasswordResponse} />
 					<Route path="/forgot" component={ForgotPassword} />
-					<Route path="/mysub" component={MySubscriptions} />
-					<Route path="/adduser" component={NewUser} />
 					<Route path="/resetresponse" component={ResetPasswordResponse} />
-					<Route path="/profile" component={UserInfo} />
+
 					<Route path="/login" component={UserLogin} />
 					<Route path="/logout" component={UserLogout} />
 					<Route path="/verified" component={Verified} />
