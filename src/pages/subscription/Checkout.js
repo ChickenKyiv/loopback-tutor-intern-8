@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import config from '../utils/config.json'
+import config from '../../utils/config.json'
 import StripeCheckout from 'react-stripe-checkout';
 //import CardForm from './CardForm'
 //			<CardForm />

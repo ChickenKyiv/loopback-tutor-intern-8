@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-var config = require('../utils/config.json');
+var config = require('../../utils/config.json');
 
 class NewUser extends Component {
 
@@ -37,9 +37,9 @@ class NewUser extends Component {
 		}).catch(err => {
 			if(err.response){
 				if(err.response.data.error.details.messages.email)
-					alert("email" + err.response.data.error.details.messages.email)
+					alert(err.response.data.error.details.messages.email)
 				else if(err.response.data.error.details.messages.username)
-					alert("username" + err.response.data.error.details.messages.username)
+					alert(err.response.data.error.details.messages.username)
 				console.log(err.response.data.error.message + " Error at signup");
 			}
 			else

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-var config = require('../utils/config.json');
+var config = require('../../utils/config.json');
 
 class ChangePassword extends Component {
 

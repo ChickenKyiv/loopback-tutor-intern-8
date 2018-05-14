@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-var config = require('../utils/config.json');
+var config = require('../../utils/config.json');
 
 class LogInUser extends Component {
 
@@ -33,7 +33,7 @@ class LogInUser extends Component {
 			this.props.history.push('/profile');//push the page you want to display
 		}).catch(err => {
 			if(err.response.data.error.message){
-				alert(err.response.data.error.message)
+				alert(err.response.data.error.message + " Please check the username and password")
 				console.log(err.response.data.error.message)
 			}
 			else if(err.response)
