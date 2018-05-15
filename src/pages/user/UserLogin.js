@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-var config = require('../../utils/config.json');
+import { API_ROOT } from '../../utils/api-config-sample'
+// var config = require('../../utils/config.json');
 
 class LogInUser extends Component {
 
@@ -23,7 +24,7 @@ class LogInUser extends Component {
 	submitUser(user){
 		axios.request({
 			method: 'post',
-			url: config.url + '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
+			url: API_ROOT + '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
 			sessionStorage.setItem("accessToken",response.data.id);
@@ -43,7 +44,7 @@ class LogInUser extends Component {
 		});
 	}
 	getGoogleLogin() {
-		axios.get(config.url + '/auth/google')
+		axios.get(API_ROOT + '/auth/google')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}

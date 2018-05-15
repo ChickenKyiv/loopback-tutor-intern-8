@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-var config = require('../../utils/config.json');
+import { API_ROOT } from '../../utils/api-config-sample'
+// var config = require('../../utils/config.json');
 
 class NewUser extends Component {
 
@@ -29,7 +30,7 @@ class NewUser extends Component {
 	//CALL TO ADD USER DATA IN DATABASE
 		axios.request({
 		method: 'post',
-		url: config.url + '/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
+		url: API_ROOT + '/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
 		data: newUser
 		}).then(respons => {
 		//	console.log("This is response-->>"+respons.data);//can get userId from this response object

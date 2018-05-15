@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import config from '../../utils/config.json'
 import StripeCheckout from 'react-stripe-checkout';
+import { API_ROOT } from '../../utils/api-config-sample'
+//import config from '../../utils/config.json'
 //import CardForm from './CardForm'
 //			<CardForm />
 
 class Checkout extends Component {
   onToken = (token) => {
   	//console.log('onToken',token, 'amount:', this.props.amount, 'plan:', this.props.plan)
-    fetch(config.url + '/stripe-token', {
+    fetch(API_ROOT + '/stripe-token', {
       method: 'POST',
       headers: {
       	Accept: 'application/json',

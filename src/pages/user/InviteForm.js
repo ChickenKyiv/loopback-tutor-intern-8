@@ -3,9 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { API_ROOT } from '../../utils/api-config-sample'
 import axios from 'axios'
 
-var config = require('../../utils/config.json');
-
-
+// var config = require('../../utils/config.json');
 
 class InviteForm extends Component {
 
@@ -22,7 +20,7 @@ class InviteForm extends Component {
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',
-			url: config.url + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+			url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
 			data: {
 				email: this.refs.email.value,
 				user: {								//need to get the user's name here somehow
