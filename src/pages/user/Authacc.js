@@ -26,8 +26,8 @@ class Authacc extends Component {
 	componentDidMount(){
 		axios.get(config.url + '/userstatus')
  		.then(response => {
-				console.log("You are logged in", JSON.stringify(response))
-				this.setState({userdata: response.data})
+				console.log("response-->", JSON.stringify(response))
+				// this.setState({userdata: response.data})
 				console.log("state"+ this.state.userdata)
 		}).catch(err => console.log(err))
 		//@todo add raven to catch
@@ -41,6 +41,7 @@ class Authacc extends Component {
 				Google login
 			</h1>
 				Name: {this.state.userdata.provider}
+				{this.getStatus()}
 			<br />
 			<br />
 			<br />
