@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { API_ROOT } from '../utils/api-config-sample'
+import { API_ROOT } from '../../utils/api-config-sample'
 
 import axios from 'axios';
 
-//var config = require('../utils/config.json');
+// var config = require('../../utils/config.json');
 
 class ChangePassword extends Component {
 
@@ -35,7 +35,7 @@ class ChangePassword extends Component {
 		", entered cpass is: " + this.refs.cpassword.value )
 		axios.request({
 			method: 'post',
-			url: /*config.url + */`/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in
+			url: API_ROOT + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in
 			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
 		}).then(response => {
 			console.log(response.data);
@@ -59,7 +59,6 @@ class ChangePassword extends Component {
 		if(check === true){
 			return (
 				<div>
-					<h4> Please enter your registered email</h4>
 					<form onSubmit={this.validate.bind(this)} >
 						<label>New Password</label>
 						<input type="password" name="password" ref="password" id="password" />

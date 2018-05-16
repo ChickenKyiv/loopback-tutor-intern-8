@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import  { Redirect } from 'react-router-dom';
+<<<<<<< HEAD:src/pages/UserLogin.js
 
 import axios from 'axios';
 var config = require('../utils/config.json');
+=======
+import { API_ROOT } from '../../utils/api-config-sample'
+// var config = require('../../utils/config.json');
+>>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951:src/pages/user/UserLogin.js
 
 class LogInUser extends Component {
 
@@ -24,7 +29,7 @@ class LogInUser extends Component {
 	submitUser(user){
 		axios.request({
 			method: 'post',
-			url: '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
+			url: API_ROOT + '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
 
@@ -36,7 +41,7 @@ class LogInUser extends Component {
 		}).catch(err => {
 			//@add raven and make this function better
 			if(err.response.data.error.message){
-				alert(err.response.data.error.message)
+				alert(err.response.data.error.message + " Please check the username and password")
 				console.log(err.response.data.error.message)
 			}
 			else if(err.response)
@@ -47,7 +52,7 @@ class LogInUser extends Component {
 	}
 
 	getGoogleLogin() {
-		axios.get(config.url + '/auth/google')
+		axios.get(API_ROOT + '/auth/google')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}

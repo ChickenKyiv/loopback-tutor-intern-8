@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//var config = require('../utils/config.json');
+import { API_ROOT } from '../../utils/api-config-sample'
+//var config = require('../../utils/config.json');
 
 class LogOutUser extends Component {
 
@@ -9,7 +10,7 @@ class LogOutUser extends Component {
 
 		axios.request({
 			method: 'post',
-			url: /*config.url + */`/api/userData/logout?access_token=${at}`
+			url: API_ROOT + `/api/userData/logout?access_token=${at}`
 		}).then(response => {
 			console.log(response.data);
 			sessionStorage.removeItem("accessToken");
