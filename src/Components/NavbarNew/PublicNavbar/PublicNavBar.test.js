@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 
 
-// it('Header renders without crashing', () => {
+// it('PublicNavbar renders without crashing', () => {
 //   const div = document.createElement('div');
 //   ReactDOM.render(<App />, div);
 // });
