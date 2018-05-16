@@ -30,15 +30,9 @@ class NewUser extends Component {
 	//CALL TO ADD USER DATA IN DATABASE
 
 		axios.request({
-<<<<<<< HEAD:src/pages/NewUser.js
-			method: 'post',
-			url: /*config.url + */'/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
-			data: newUser
-=======
 		method: 'post',
 		url: API_ROOT + '/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
 		data: newUser
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951:src/pages/user/NewUser.js
 		}).then(respons => {
 		//	console.log("This is response-->>"+respons.data);//can get userId from this response object
 			this.props.history.push('/verify');//tell user to verify email first

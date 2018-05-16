@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-// import { Link } from 'react-router-dom';
-=======
 //import { Link } from 'react-router-dom';
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951
 
 // <Link to="/about">About</Link>
 
@@ -11,21 +7,6 @@ class Header extends Component {
 
 	isNotLoggedIn () {
 		return(
-<<<<<<< HEAD
-			<nav className="navbar navbar-default">
-				<div className="container-fluid">
-					<div className="navbar-header">
-					  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
-					    <span className="sr-only">Toggle navigation</span>
-					    <span className="icon-bar"></span>
-					    <span className="icon-bar"></span>
-					    <span className="icon-bar"></span>
-					  </button>
-					  <a className="navbar-brand" href="/link">
-						<img src="/logo.png" width="30" height="30" alt="logo.png" />
-						</a>
-					</div>
-=======
 	     <nav className="navbar navbar-default">
 		  <div className="container-fluid">
 		    <div className="navbar-header">
@@ -37,7 +18,6 @@ class Header extends Component {
 		      </button>
 		      <a className="navbar-brand" href="/about" title="About Us"><img src="/logo.png" width="30" height="30" alt="logo.png" /></a>
 		    </div>
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951
 
 
 				<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

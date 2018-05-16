@@ -4,14 +4,8 @@ let backendHost;
 
 const hostname = window && window.location && window.location.hostname;
 
-<<<<<<< HEAD
-if(hostname === 'realsite.com') {
-  backendHost = 'https://api.realsite.com';
-
-=======
 if(hostname === 'groceristar.netlify.com') {
   backendHost = 'https://loopback-react-account.herokuapp.com';
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951
 } else if(hostname === 'staging.realsite.com') {
   backendHost = 'https://staging.api.realsite.com';
 
@@ -20,7 +14,7 @@ if(hostname === 'groceristar.netlify.com') {
 
 } else {
   backendHost = process.env.REACT_APP_BACKEND_HOST || 'http://localhost:3000';
-  
+
 }
 
 export const API_ROOT = `${backendHost}`;

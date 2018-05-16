@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import  { Redirect } from 'react-router-dom';
-<<<<<<< HEAD:src/pages/UserLogin.js
-
-import axios from 'axios';
-var config = require('../utils/config.json');
-=======
+import { Redirect } from 'react-router-dom';
 import { API_ROOT } from '../../utils/api-config-sample'
 // var config = require('../../utils/config.json');
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951:src/pages/user/UserLogin.js
 
 class LogInUser extends Component {
 

@@ -8,13 +8,7 @@ import { API_ROOT } from '../../utils/api-config-sample'
 class Checkout extends Component {
   onToken = (token) => {
   	//console.log('onToken',token, 'amount:', this.props.amount, 'plan:', this.props.plan)
-<<<<<<< HEAD:src/pages/Checkout.js
-    //@todo this is not clear. at one place we're using axios, at this place we're using fetch.
-    // did you know that this is a similar functions?
-    fetch(/*config.url + */'/stripe-token', {
-=======
     fetch(API_ROOT + '/stripe-token', {
->>>>>>> 26f44bd783bc811aeb927c5d2ae68f2c9107f951:src/pages/subscription/Checkout.js
       method: 'POST',
       headers: {
       	Accept: 'application/json',
