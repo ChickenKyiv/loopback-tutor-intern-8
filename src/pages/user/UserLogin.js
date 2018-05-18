@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios'
 import { API_ROOT } from '../../utils/api-config-sample'
 // var config = require('../../utils/config.json');
 
@@ -50,36 +51,41 @@ class LogInUser extends Component {
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}
-	// @todo replace that url from .env
+	// @todo don't know why thie url doesnt work
+	renderNormal() {
+		//document.getElementById('google').href = API_ROOT + "/auth/google";
+		return (
+			<div>
+				<h1>LogIn</h1>
+				<div>
+					<form className="entryForm" method="post"
+					onSubmit={this.onSubmit.bind(this)}>
+						<br />
+						<label>Username</ label>
+						<input type="text" name="username" ref="username" required />
+						<br />
+						<label>Password</ label>
+						<input type="password" name="password" ref="password" required />
+						<br />
+						<input type="submit" value="Login" />
+						<a href="/adduser" >New User?</a>
+						<br />
+						<a href="/forgot" >Forgot password? </a>
+					</form>
+					<br />
+					<br />
+					<a href="https://loopback-react-account.herokuapp.com/auth/google" id="google">
+						Signin with google
+					</a>
+				</div>
+			</div>
+		);
+	}
+
 	render() {
 		let check = false;
 		if( check === false ){
-			return (
-				<div>
-					<h1>LogIn</h1>
-					<div>
-						<form className="entryForm" method="post"
-						onSubmit={this.onSubmit.bind(this)}>
-							<br />
-							<label>Username</ label>
-							<input type="text" name="username" ref="username" required />
-							<br />
-							<label>Password</ label>
-							<input type="password" name="password" ref="password" required />
-							<br />
-							<input type="submit" value="Login" />
-							<a href="/adduser" >New User?</a>
-							<br />
-							<a href="/forgot" >Forgot password? </a>
-						</form>
-						<br />
-						<br />
-						<a href="https://loopback-react-account.herokuapp.com/auth/google">
-							Signin with google
-						</a>
-					</div>
-				</div>
-			);
+			return this.renderNormal();
 		}
 		else{
 			console.log(sessionStorage.getItem("isLoggedIn"));

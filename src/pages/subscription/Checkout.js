@@ -8,6 +8,7 @@ import { API_ROOT } from '../../utils/api-config-sample'
 class Checkout extends Component {
   onToken = (token) => {
   	//console.log('onToken',token, 'amount:', this.props.amount, 'plan:', this.props.plan)
+    //feels like axios doesnt work and gives some error
     fetch(API_ROOT + '/stripe-token', {
       method: 'POST',
       headers: {
@@ -17,7 +18,7 @@ class Checkout extends Component {
       body: JSON.stringify({
         stripeToken: token.id,
         plan: this.props.plan,
-        email: token.card.email
+        email: token.email  //check if stripe makes any changes in object structure
       }),
     }).then(response => {
       response.json().then(data => {
@@ -28,7 +29,7 @@ class Checkout extends Component {
   }
 
   render() {
-    //@todo use key from .env file
+    //@todo use key from .env file tried this
     // REACT_APP_TEST_PUBLISHABLE_KEY
     // REACT_APP_TEST_SECRET_KEY
     return (

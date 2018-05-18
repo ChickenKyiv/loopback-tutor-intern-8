@@ -23,6 +23,10 @@
     "build": "react-scripts build",
     "build-windows": "npm install preact-cli && preact build",
     "test": "react-scripts test --env=jsdom",
+    "test-jest": "jest",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest-cli": "^22.4.3"
   }
 }

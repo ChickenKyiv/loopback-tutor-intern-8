@@ -129,33 +129,33 @@ class UsersInfo extends Component {
 			console.log(error + "Error in getting user data")
 		});
 	}
-//===ADD EDIT PROFILE WORKING BUTTON
-	renderNormal() {
-			return (
-				<div>
-				<h1>Existing User data</h1>
-				Name: {this.state.userdata.firstName} {this.state.userdata.lastName}
-				<br />
-				Email: {this.state.userdata.email}
-				<br />
-				username: {this.state.userdata.username}
-				<br />
-				<br />
-				<h4> Please enter your friend's email</h4>
-					<form onSubmit={this.send.bind(this)} >
-						<input type="email" name="email" ref="email" id="email" />
-						<input type="submit" value="Send email" />
-					</form>
 
-				<a href="/invite">invite page</a>
-				<br />
-				<br />
-				<button onClick={this.edit.bind(this)}>Edit profile </ button>
-				<a href="/change">Change password </ a>
-				<br />
-				<button onClick={this.deleteAccount.bind(this)}>Delete account</button>
-			</div>
-			);
+	renderNormal() {
+		return (
+			<div>
+			<h1>Existing User data</h1>
+			Name: {this.state.userdata.firstName} {this.state.userdata.lastName}
+			<br />
+			Email: {this.state.userdata.email}
+			<br />
+			username: {this.state.userdata.username}
+			<br />
+			<br />
+			<h4> Please enter your friend's email</h4>
+				<form onSubmit={this.send.bind(this)} >
+					<input type="email" name="email" ref="email" id="email" />
+					<input type="submit" value="Send email" />
+				</form>
+
+			<a href="/invite">invite page</a>
+			<br />
+			<br />
+			<button onClick={this.edit.bind(this)}>Edit profile </ button>
+			<a href="/change">Change password </ a>
+			<br />
+			<button onClick={this.deleteAccount.bind(this)}>Delete account</button>
+		</div>
+		);
 	}
 
 	renderEditMode() {

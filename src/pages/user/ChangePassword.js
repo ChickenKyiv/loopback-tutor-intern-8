@@ -18,12 +18,28 @@ class ChangePassword extends Component {
 
 	getStatus () {
 		return API_ROOT + `/userstatus`
-		/api/userData/reset-password?access_token=${accessToken}
+		//api/userData/reset-password?access_token=${accessToken}
 	}
 	
 	generateUrl (accessToken) {
 		// @todo i still don't like this long line, but not sure if it can be improved well right now
 			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
+	}
+
+	renderNormal() {
+		return (
+			<div>
+				<form onSubmit={this.validate.bind(this)} >
+					<label>New Password</label>
+					<input type="password" name="password" ref="password" id="password" />
+					<br />
+					<label>Confirm New Password</label>
+					<input type="cpassword" name="cpassword" ref="cpassword" id="cpassword" />
+					<br />
+					<input type="submit" value="Reset Password" />
+				</form>
+			</div>
+		);		
 	}
 
 	reset (e){
@@ -57,19 +73,7 @@ class ChangePassword extends Component {
 		//@todo can we move this outside? i don't like this structure with if -> return - else - message
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 		if(check === true){
-			return (
-				<div>
-					<form onSubmit={this.validate.bind(this)} >
-						<label>New Password</label>
-						<input type="password" name="password" ref="password" id="password" />
-						<br />
-						<label>Confirm New Password</label>
-						<input type="cpassword" name="cpassword" ref="cpassword" id="cpassword" />
-						<br />
-						<input type="submit" value="Reset Password" />
-					</form>
-				</div>
-			);
+			return this.renderNormal();
 		}
 		else{
 			console.log("you need to login first");
