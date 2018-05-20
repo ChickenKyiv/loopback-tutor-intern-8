@@ -5,17 +5,20 @@ var boot = require('loopback-boot');
 var app = module.exports = loopback();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-const forestLiana = require('forest-loopback');
+// const forestLiana = require('forest-loopback');
+
 //install raven
 var Raven = require('raven-js');
 Raven.config('https://77aa2ee9a7ce484497f56278982a0809@sentry.io/305339').install();
 
+
+
 // Passport configurators..
-var loopbackPassport = require('loopback-component-passport');
+var loopbackPassport     = require('loopback-component-passport');
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
 var passportConfigurator = new PassportConfigurator(app);
-const FOREST_ENV_SECRET = '3379a8bac099b6505edaef3326b36269870f97a68124136ea6e2f9e1d6cad7bb';
-const FOREST_AUTH_SECRET = '51czzh0ook2afqKly6mJKzvgEE2f54jH';
+// const FOREST_ENV_SECRET = '3379a8bac099b6505edaef3326b36269870f97a68124136ea6e2f9e1d6cad7bb';
+// const FOREST_AUTH_SECRET = '51czzh0ook2afqKly6mJKzvgEE2f54jH';
 //body-parser reads a form's input and stores it as a javascript object accessible through `req.body`
 var bodyParser = require('body-parser');
 
@@ -79,14 +82,14 @@ for (var s in config) {
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 //forest  NOT DONE NO MODELS DISPLAYED STILL NEED TO CHECK WHATS WRONG
-app.use(
-  forestLiana.init({
-    modelsDir: __dirname + '/../common/models',  // The directory where all of your Loopback models are defined.
-    secretKey: FOREST_ENV_SECRET, // The secret key given my Forest.
-    authKey: FOREST_AUTH_SECRET, // Choose a secret authentication key.
-    loopback: loopback // The loopback instance given by require('loopback').
-  }) 
-);
+// app.use(
+//   forestLiana.init({
+//     modelsDir: __dirname + '/../common/models',  // The directory where all of your Loopback models are defined.
+//     secretKey: FOREST_ENV_SECRET, // The secret key given my Forest.
+//     authKey: FOREST_AUTH_SECRET, // Choose a secret authentication key.
+//     loopback: loopback // The loopback instance given by require('loopback').
+//   })
+// );
 
 //check if user is logged in or not
 
@@ -166,6 +169,8 @@ app.get('/auth/logout', function(req, res, next) {
 //^--changes
 
 
+
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -186,5 +191,3 @@ app.start = function() {
    if (require.main === module)
      app.start();
 // });
-
-
