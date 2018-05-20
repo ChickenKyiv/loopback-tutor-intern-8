@@ -34,7 +34,7 @@
     "passport-google-oauth2": "^0.1.6",
     "raven-js": "^3.25.2",
     "serve-favicon": "^2.0.1",
-    "stripe": "^5.8.0",
+    "stripe": "^6.0.0",
     "strong-error-handler": "^2.0.0",
     "underscore": "^1.9.0",
     "webpack": "^4.8.3",
