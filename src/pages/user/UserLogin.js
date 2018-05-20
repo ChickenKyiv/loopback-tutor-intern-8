@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios'
 import { API_ROOT } from '../../utils/api-config-sample'
-// var config = require('../../utils/config.json');
 
 class LogInUser extends Component {
 

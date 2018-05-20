@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Plans from './Plans'
 //import axios from 'axios';
-//var config = require('../utils/config.json');
+
 
 class MySubscriptions extends Component {
 

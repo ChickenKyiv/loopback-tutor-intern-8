@@ -4,7 +4,7 @@ import { API_ROOT } from '../../utils/api-config-sample'
 
 import axios from 'axios';
 
-// var config = require('../../utils/config.json');
+
 
 class ChangePassword extends Component {
 
@@ -20,7 +20,7 @@ class ChangePassword extends Component {
 		return API_ROOT + `/userstatus`
 		//api/userData/reset-password?access_token=${accessToken}
 	}
-	
+
 	generateUrl (accessToken) {
 		// @todo i still don't like this long line, but not sure if it can be improved well right now
 			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
@@ -39,7 +39,7 @@ class ChangePassword extends Component {
 					<input type="submit" value="Reset Password" />
 				</form>
 			</div>
-		);		
+		);
 	}
 
 	reset (e){

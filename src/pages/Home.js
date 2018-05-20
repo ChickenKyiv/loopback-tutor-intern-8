@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import config from '../utils/config.json'
+
+import { API_ROOT } from '../utils/api-config-sample'
 import axios from 'axios'
 
 class Home extends Component {
 
 	addToCart () {
-		axios.get(config.url + '/add-to-cart')
+		axios.get(API_ROOT + '/add-to-cart')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}
@@ -21,7 +22,8 @@ class Home extends Component {
 								<h3>Thumbnail label</h3>
 								<p>Description about product</p>
 								<p>
-									<button onClick={this.addToCart.bind(this)} className="btn btn-primary" >Add to cart</button>
+									<button onClick={this.addToCart.bind(this)}
+									className="btn btn-primary" >Add to cart</button>
 								</p>
 							</div>
 						</div>

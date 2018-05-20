@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { API_ROOT } from '../../utils/api-config-sample'
 import axios from 'axios'
-var config = require('../../utils/config.json');
+
 
 class Authacc extends Component {
 
@@ -24,7 +24,7 @@ class Authacc extends Component {
 	}
 
 	componentDidMount(){
-		axios.get(config.url + '/userstatus')
+		axios.get(API_ROOT + '/userstatus')
  		.then(response => {
 				console.log("response-->", JSON.stringify(response))
 				// this.setState({userdata: response.data})

@@ -3,7 +3,6 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 import { API_ROOT } from '../../utils/api-config-sample'
 
-// var config = require('../../utils/config.json');
 
 class UsersInfo extends Component {
 

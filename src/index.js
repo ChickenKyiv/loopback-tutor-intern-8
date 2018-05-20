@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 //import { unregister } from './registerServiceWorker';
 import registerServiceWorker from './registerServiceWorker';
-import Raven from 'raven-js';
-import { sentry_url } from './ravenconfig';
-
+// import Raven from 'raven-js';
+// import { logException } from './ravenconfig';
+// console.log(Raven);
 // @todo maybe we should run install at ravenconfig?
-Raven.config(sentry_url).install();
+// Raven.config(process.env.REACT_APP_SENTRY_URL).install();
 
 const rootElement = document.getElementById('root')
 

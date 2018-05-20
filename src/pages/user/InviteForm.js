@@ -3,14 +3,12 @@ import { Redirect } from 'react-router-dom'
 import { API_ROOT } from '../../utils/api-config-sample'
 import axios from 'axios'
 
-// var config = require('../../utils/config.json');
+
 
 class InviteForm extends Component {
 
-	// not sure if it works :0
-	// generateUrl = (accessToken) => { API_ROOT + `/api/userData/invite?access_token=${accessToken}` }
-	generateUrl (accessToken) {
-		// @todo i still don't like this long line, but not sure if it can be improved well right now
+
+	generateUrl (accessToken) {	
 			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
 	}
 
