@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Raven from 'raven-js';
 import { sentry_url } from './ravenconfig';
 
+// @todo maybe we should run install at ravenconfig?
 Raven.config(sentry_url).install();
 
 const rootElement = document.getElementById('root')

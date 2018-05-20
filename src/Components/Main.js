@@ -23,14 +23,14 @@ import InviteForm from '../pages/InviteForm';
 // ```
 //   <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
 // ```
-const authenticate = (nextState, replace) => {
-  if (!Meteor.loggingIn() && !Meteor.userId()) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname },
-    });
-  }
-};
+// const authenticate = (nextState, replace) => {
+//   if (!Meteor.loggingIn() && !Meteor.userId()) {
+//     replace({
+//       pathname: '/login',
+//       state: { nextPathname: nextState.location.pathname },
+//     });
+//   }
+// };
 
 class Main extends Component {
 	render() {
@@ -45,7 +45,7 @@ class Main extends Component {
 					<Route path="/mysub" component={MySubscriptions} />
 					<Route path="/adduser" component={NewUser} />
 					<Route path="/profile" component={UserInfo} />
-					
+
 					<Route path="/reset" component={ChangePassword} />
 					<Route path="/changeresponse" component={ChangePasswordResponse} />
 					<Route path="/forgot" component={ForgotPassword} />
