@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router';
+// import { Switch, Route } from 'react-router';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import acc from '../pages/Authacc';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
@@ -37,27 +40,32 @@ class Main extends Component {
 		return (
 			<div>
 			<main>
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route path="/auth/account" component={acc} />
-					<Route path="/cart" component={Cart} />
-					<Route path="/checkout" component={Checkout} />
-					<Route path="/mysub" component={MySubscriptions} />
-					<Route path="/adduser" component={NewUser} />
-					<Route path="/profile" component={UserInfo} />
 
-					<Route path="/reset" component={ChangePassword} />
-					<Route path="/changeresponse" component={ChangePasswordResponse} />
-					<Route path="/forgot" component={ForgotPassword} />
-					<Route path="/resetresponse" component={ResetPasswordResponse} />
+				<Router>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route path="/auth/account" component={acc} />
+						<Route path="/cart" component={Cart} />
+						<Route path="/checkout" component={Checkout} />
+						<Route path="/mysub" component={MySubscriptions} />
+						<Route path="/adduser" component={NewUser} />
+						<Route path="/profile" component={UserInfo} />
 
-					<Route path="/login" component={UserLogin} />
-					<Route path="/logout" component={UserLogout} />
-					<Route path="/verified" component={Verified} />
-					<Route path="/verify" component={Verify} />
-					<Route path="/invite" component={InviteForm} />
-					<Route exact path="*" component={p404} />
-				</Switch>
+						<Route path="/reset" component={ChangePassword} />
+						<Route path="/changeresponse" component={ChangePasswordResponse} />
+						<Route path="/forgot" component={ForgotPassword} />
+						<Route path="/resetresponse" component={ResetPasswordResponse} />
+
+						<Route path="/login" component={UserLogin} />
+						<Route path="/logout" component={UserLogout} />
+						<Route path="/verified" component={Verified} />
+						<Route path="/verify" component={Verify} />
+						<Route path="/invite" component={InviteForm} />
+						<Route exact path="*" component={p404} />
+					</Switch>
+				</Router>
+
+
 				</main>
 			</div>
 		);

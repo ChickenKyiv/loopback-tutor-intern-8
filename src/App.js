@@ -4,12 +4,13 @@ import './styles/App.css';
 import Header from './Components/Header/Header.js';
 
 import Main   from './Components/Main/Main.js'
-import { logException } from './ravenconfig';
+// import { logException } from './ravenconfig';
+
 class App extends Component {
 
   render() {
-    logException('123');
-    // console.log(process.env.REACT_APP_SECRET_ONE)
+    // logException('123');
+
 
     return (
       <div className="App">
