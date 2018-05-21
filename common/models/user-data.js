@@ -3,16 +3,22 @@
 
 var config = require('../../server/config.json');
 var path = require('path');
-var senderAddress = "arthur.tkachenko.netweight@gmail.com";
-//var senderEmailPassword = "biBcf1K8r4Yn";
+var senderAddress = "arthur.tkachenko.netweight@gmail.com";//what has to be displayed in from in email 
+//var senderEmailPassword = "biBcf1K8r4Yn";//can be different for different emails
 
 //adjust in final build
 var host = process.env.HOST || "localhost";
 var port = process.env.PORT || config.port;
-var customverifyHref = 'https://loopback-react-account.herokuapp.com/api/userData/confirm?uid=';
-//to change the default host port for verification
-var reacturl = 'https://groceristar.netlify.com';//redirect to this page after verification
-
+//will need to be set separately
+if(process.env.NODE_ENV === 'production'){
+  var customverifyHref = process.env.LOOPBACK_SERVER_API_URL + '/api/userData/confirm?uid=';//This url depends on model
+  //to change the default host port for verification
+  var reacturl = process.env.REACT_APP_FRONTEND_URL;//redirect to this page after verification
+}
+else{
+  var customverifyHref = 'http://localhost:3000' + '/api/userData/confirm?uid=';
+  var reacturl = 'http://localhost:3001';//redirect to this page after verification
+}
 
 module.exports = function(Userdata) {
   //send verification email after registration
@@ -25,7 +31,7 @@ module.exports = function(Userdata) {
       text: "please verify the link",
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
       verifyHref: customverifyHref + user.id + '&redirect=' + reacturl + '/verified',
-      redirect: verifiedRedirecturl + '/verified',
+      redirect: reacturl + '/verified',
       //redirect:'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
       user: user
     };
@@ -35,14 +41,15 @@ module.exports = function(Userdata) {
         Userdata.deleteById(user.id);
         return next(err);
       }
+      context.res.status(200).send('success');
       //adjust this in react
-      context.res.render('response', {
-        title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' +
-            'before logging in.',
-        redirectTo: '/',
-        redirectToLinkText: 'Log in'
-      });
+      // context.res.render('response', {
+      //   title: 'Signed up successfully',
+      //   content: 'Please check your email and click on the verification link ' +
+      //       'before logging in.',
+      //   redirectTo: '/',
+      //   redirectToLinkText: 'Log in'
+      // });
     });
   });
   //Insert one more method to verify email after user has updated the email
@@ -88,7 +95,7 @@ module.exports = function(Userdata) {
   Userdata.invite = function (email, user) {
   //  console.log(user)
     var url = reacturl;//'http://' + host + ':' + port + '/';
-    var html = user.firstName + ' ' + user.lastName + ' invite you to ' +'<a href="' + url + '">url</a> to check us out';
+    var html = user.firstName + ' ' + user.lastName + ' invited you to ' +'<a href="' + url + '">groceristar</a> to check us out';
     Userdata.app.models.Email.send({
       to: email,
       from: senderAddress,
@@ -129,7 +136,7 @@ module.exports = function(Userdata) {
   Userdata.remoteMethod('csvexport',
   {
     accepts: [
-    //  {arg: 'id', type: 'string', required: true },
+    //  {arg: 'id', type: 'string', required: true }, pass userid
       {arg: 'res', type: 'object', 'http': {source: 'res'}}
     ],
     returns: {},
@@ -139,8 +146,6 @@ module.exports = function(Userdata) {
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
     var url = reacturl + '/reset-password'; 
-    //var url = 'https://' + host + ':' + port/reset-password;
-    //var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password'; Testing locally
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
   //      console.log("yes reset reached here with this access token"+ info.accessToken.id);

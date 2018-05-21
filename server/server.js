@@ -9,16 +9,21 @@ var session = require('express-session');
 
 //install raven
 var Raven = require('raven-js');
-Raven.config('https://77aa2ee9a7ce484497f56278982a0809@sentry.io/305339').install();
-
+if(process.env.NODE_ENV === 'production'){
+  const ravenurl = 'https://' + process.env.REACT_APP_SENTRY_KEY + '@sentry.io/' + process.env.REACT_APP_SENTRY_APP;
+  Raven.config(ravenurl).install();
+}
+else{//if not required in development then you can remove this
+  Raven.config('https://77aa2ee9a7ce484497f56278982a0809@sentry.io/305339').install();
+}
 
 
 // Passport configurators..
 var loopbackPassport     = require('loopback-component-passport');
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
 var passportConfigurator = new PassportConfigurator(app);
-// const FOREST_ENV_SECRET = '3379a8bac099b6505edaef3326b36269870f97a68124136ea6e2f9e1d6cad7bb';
-// const FOREST_AUTH_SECRET = '51czzh0ook2afqKly6mJKzvgEE2f54jH';
+// const FOREST_ENV_SECRET = process.env.LOOPBACK_FOREST_ENV_SECRET;
+// const FOREST_AUTH_SECRET = process.env.LOOPBACK_FOREST_AUTH_SECRET;
 //body-parser reads a form's input and stores it as a javascript object accessible through `req.body`
 var bodyParser = require('body-parser');
 
@@ -91,9 +96,6 @@ var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 //   })
 // );
 
-//check if user is logged in or not
-
-
 /*==Implement if failure messages do not work in react==*/
 app.get('*', function(req, res, next) {
   res.locals.user = req.user || null;
@@ -116,60 +118,10 @@ app.get('/auth/account', ensureLoggedIn('/'), function(req, res, next) {
    });
 });
 
-// app.get('/local', function(req, res, next) {
-//   res.render('pages/local', {
-//     user: req.user,
-//     url: req.url,
-//   });
-// });
-
-// app.get('/signup', function(req, res, next) {
-//   res.render('pages/signup', {
-//     user: req.user,
-//     url: req.url,
-//   });
-// });
-
-// app.post('/signup', function(req, res, next) {
-//   var User = app.models.user;
-
-//   var newUser = {};
-//   newUser.email = req.body.email.toLowerCase();
-//   newUser.username = req.body.username.trim();
-//   newUser.password = req.body.password;
-
-//   User.create(newUser, function(err, user) {
-//     if (err) {
-//       req.flash('error', err.message);
-//       return res.redirect('back');
-//     } else {
-//       // Passport exposes a login() function on req (also aliased as logIn())
-//       // that can be used to establish a login session. This function is
-//       // primarily used when users sign up, during which req.login() can
-//       // be invoked to log in the newly registered user.
-//       req.login(user, function(err) {
-//         if (err) {
-//           req.flash('error', err.message);
-//           return res.redirect('back');
-//         }
-//         return res.redirect('/auth/account');
-//       });
-//     }
-//   });
-// });
-
-
-
 app.get('/auth/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');
 });
-
-
-//^--changes
-
-
-
 
 app.start = function() {
   // start the web server

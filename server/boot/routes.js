@@ -1,7 +1,7 @@
 'use strict';
 
 var dsConfig = require('../datasources.json');
-var urlTest = "http://127.0.0.1:3001";
+//var urlTest = "http://127.0.0.1:3001";//not used
 
 module.exports = function(app) {
 var User = app.models.userData;
@@ -28,7 +28,7 @@ var User = app.models.userData;
     
     
   });
-
+/*NOT REQUIRED implemented in react
   app.get('/request-password-reset', function(req, res, next) {
     res.render('resetpassword');
   });
@@ -43,7 +43,7 @@ var User = app.models.userData;
       res.render('response', {
         title: 'Password reset requested',
         content: 'Check your email for further instructions',
-        redirectTo: urlTest + '/',
+        redirectTo: '/',
         redirectToLinkText: 'Log in'
       });
     });
@@ -58,6 +58,5 @@ var User = app.models.userData;
     });
   });
 
-  
-  
+*/
 }
