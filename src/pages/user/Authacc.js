@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { API_ROOT } from '../../utils/api-config-sample'
 import axios from 'axios'
-
+import { logException } from '../ravenconfig'
 
 class Authacc extends Component {
 
