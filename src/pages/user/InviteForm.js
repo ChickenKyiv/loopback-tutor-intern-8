@@ -25,28 +25,28 @@ class InviteForm extends Component {
 		axios.get(API_ROOT + `/api/userData/${userId}?access_token=${at}`)
 		.then(response => {
 			this.setState({userdata: response.data})
-			sessionStorage.setItem("email",response.data.email);
+			axios.request({
+				method: 'post',
+				url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+				data: {
+					email: this.refs.email.value,
+					user: this.state.userdata
+				}
+			}).then(response => {
+			//	console.log(response.data);
+				this.props.history.push('/profile');
+			}).catch(err => {
+				//@todo add raven. add braces
+				if(err.response)
+					console.log(err.response.data.error.message + "Error at sending invite");
+				else
+					console.log(err)
+			});
 		})
 		.catch(error => {
 			console.log(error + "Error in getting user data")
 		});
-		axios.request({
-			method: 'post',
-			url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
-			data: {
-				email: this.refs.email.value,
-				user: this.state.userdata
-			}
-		}).then(response => {
-		//	console.log(response.data);
-			this.props.history.push('/users');
-		}).catch(err => {
-			//@todo add raven. add braces
-			if(err.response)
-				console.log(err.response.data.error.message + "Error at sending invite");
-			else
-				console.log(err)
-		});
+
 
 	}
 
