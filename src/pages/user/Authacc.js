@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { API_ROOT } from '../../utils/api-config-sample'
 import axios from 'axios'
-import { logException } from '../ravenconfig'
+import { logException } from '../../ravenconfig'
 
 class Authacc extends Component {
 
@@ -29,8 +29,12 @@ class Authacc extends Component {
 				console.log("response-->", JSON.stringify(response))
 				// this.setState({userdata: response.data})
 				console.log("state"+ this.state.userdata)
-		}).catch(err => console.log(err))
-		//@todo add raven to catch
+
+		}).catch(err => {
+			console.log(err)
+			//@todo add raven to catch
+			logException({error: err})			
+		})
 	}
 
 
