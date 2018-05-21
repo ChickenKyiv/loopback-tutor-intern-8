@@ -10,7 +10,7 @@ var senderAddress = "arthur.tkachenko.netweight@gmail.com";//what has to be disp
 var host = process.env.HOST || "localhost";
 var port = process.env.PORT || config.port;
 //will need to be set separately
-if(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV == 'production'){
   var customverifyHref = process.env.LOOPBACK_SERVER_API_URL + '/api/userData/confirm?uid=';//This url depends on model
   //to change the default host port for verification
   var reacturl = process.env.REACT_APP_FRONTEND_URL;//redirect to this page after verification

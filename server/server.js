@@ -9,7 +9,7 @@ var session = require('express-session');
 
 //install raven
 var Raven = require('raven-js');
-if(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV == 'production'){
   const ravenurl = 'https://' + process.env.REACT_APP_SENTRY_KEY + '@sentry.io/' + process.env.REACT_APP_SENTRY_APP;
   Raven.config(ravenurl).install();
 }
