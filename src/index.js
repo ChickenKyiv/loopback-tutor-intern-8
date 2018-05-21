@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 // import Raven from 'raven-js';
 // import { logException } from './ravenconfig';
 // console.log(Raven);
-// @todo maybe we should run install at ravenconfig?
+// @todo maybe we should run install at ravenconfig? This has to be done here
 // Raven.config(process.env.REACT_APP_SENTRY_URL).install();
 
 const rootElement = document.getElementById('root')

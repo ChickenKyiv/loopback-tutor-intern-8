@@ -2,7 +2,7 @@ import Raven from 'raven-js'
 
 // const sentry_key = process.env.REACT_APP_SENTRY_KEY;
 // const sentry_app = process.env.REACT_APP_SENTRY_APP;
-// @todo where did we use the sentry_url variable?
+// @todo where did we use the sentry_url variable? imported in index.js
 // or we will install raven here?
 const sentry_url = `https://${process.env.REACT_APP_SENTRY_KEY}@sentry.io/${process.env.REACT_APP_SENTRY_APP}`;
 

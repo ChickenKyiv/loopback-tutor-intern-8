@@ -7,7 +7,12 @@ import axios from 'axios'
 
 class InviteForm extends Component {
 
-
+	constructor() {
+		super();
+		this.state = {
+			userdata: {}
+		}
+	}
 	generateUrl (accessToken) {	
 			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
 	}
@@ -16,15 +21,21 @@ class InviteForm extends Component {
 		e.preventDefault();
 		console.log("entered email is: " + this.refs.email.value )
 		let at = sessionStorage.getItem("accessToken");
+		let userId = sessionStorage.getItem("userId");
+		axios.get(API_ROOT + `/api/userData/${userId}?access_token=${at}`)
+		.then(response => {
+			this.setState({userdata: response.data})
+			sessionStorage.setItem("email",response.data.email);
+		})
+		.catch(error => {
+			console.log(error + "Error in getting user data")
+		});
 		axios.request({
 			method: 'post',
 			url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
 			data: {
 				email: this.refs.email.value,
-				user: {								//need to get the user's name here somehow
-					firstName: "testfirstname",
-					lastName: "testlastname"
-				}
+				user: this.state.userdata
 			}
 		}).then(response => {
 		//	console.log(response.data);
