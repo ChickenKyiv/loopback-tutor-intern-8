@@ -92,7 +92,7 @@ module.exports = function(Userdata) {
     });
   });
 //invite someone via email
-  Userdata.invite = function (email, user) {
+  Userdata.invite = function (email, user, res) {
   //  console.log(user)
     var url = reacturl;//'http://' + host + ':' + port + '/';
     var html = user.firstName + ' ' + user.lastName + ' invited you to ' +'<a href="' + url + '">groceristar</a> to check us out';
@@ -101,18 +101,22 @@ module.exports = function(Userdata) {
       from: senderAddress,
       subject: 'Invitation',
       html: html
-    }, function(err) {
+    }, function(err, ctx) {
       if (err) return console.log('> error sending invite email');
-      console.log('> sending invite email to:', email);
+      else{
+        console.log('> sending invite email to:', email);
+        res.status(200).send('sent');
+      }
     });
   };
 
   Userdata.remoteMethod('invite', 
     {
-      http: {path: '/invite', verb: 'post'},
+      http: {path: '/invite', verb: 'post', status: 200, errorStatus: 400},
       accepts: [
         {arg:'email', type: 'string'},
-        {arg: 'user', type: 'object'}
+        {arg: 'user', type: 'object'},
+        {arg: 'res', type: 'object', 'http': {source: 'res'}}
       ]
     }
   );
