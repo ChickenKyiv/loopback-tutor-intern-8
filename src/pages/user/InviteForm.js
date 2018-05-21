@@ -32,8 +32,8 @@ class InviteForm extends Component {
 					email: this.refs.email.value,
 					user: this.state.userdata
 				}
-			}).then(response => {
-			//	console.log(response.data);
+			}).then(res => {
+				console.log(res);
 				this.props.history.push('/profile');
 			}).catch(err => {
 				//@todo add raven. add braces
