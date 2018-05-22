@@ -11,5 +11,18 @@
     "successRedirect": "https://groceristar.netlify.com/auth/account",
     "failureRedirect": "/",
     "scope": ["email", "profile"]
+  },
+  "twitter-login": {
+    "provider": "twitter",
+    "authScheme": "oauth",
+    "module": "passport-twitter",
+    "callbackURL": "/auth/twitter/callback",
+    "authPath": "/auth/twitter",
+    "callbackPath": "/auth/twitter/callback",
+    "successRedirect": "https://groceristar.netlify.com/auth/account",
+    "failureRedirect": "/",
+    "consumerKey": "9yG9RW87aEFCdje2QC1NNCKge",
+    "consumerSecret": "bx8hhWy6sjBRnomAmalWVKm3nvdH1tGcG9u1lxvVJbYI4vpBXM",
+    "failureFlash": true
   }
 }

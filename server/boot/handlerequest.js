@@ -84,8 +84,9 @@ module.exports = function(handle) {
 		});
 	});
 */
-	handle.get('/userstatus', function(req, res, next){
+	handle.get('/userstatus', function(req, res, next){//try to pass context object and send user data to frontend
 	//	res.json(req.user);JSON.stringify(req.user)
+	//	console.log(context);
 		if(req.user){
 			let username = req.user.id;
 			console.log("Req.user", username );
