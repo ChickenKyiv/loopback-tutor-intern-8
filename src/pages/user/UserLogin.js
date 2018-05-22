@@ -76,6 +76,10 @@ class LogInUser extends Component {
 					<a href="https://loopback-react-account.herokuapp.com/auth/google" id="google">
 						Signin with google
 					</a>
+					<br />
+					<a href="https://loopback-react-account.herokuapp.com/auth/twitter" id="twitter">
+						Signin with twitter
+					</a>
 				</div>
 			</div>
 		);
