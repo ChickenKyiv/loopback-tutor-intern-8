@@ -96,6 +96,5 @@ class LogInUser extends Component {
 		}
 	}
 }
-//http://localhost:3001/auth/google
-///auth/google
+
 export default LogInUser;
