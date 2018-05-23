@@ -66,21 +66,21 @@ after updating data -we have a nice sweetbox confirmation modal
 
 
 
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/schemes-sitemaps/099a7735f717498faaa8731f55654fa7.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/162f6342b3ee45ae9c5f338212d554dc.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-billing-form.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-profile-update-phone-validation.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-profile-update.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-user-forward-email.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-profile.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-update-card.png"Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-signup2.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/schemes-sitemaps/099a7735f717498faaa8731f55654fa7.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/162f6342b3ee45ae9c5f338212d554dc.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-billing-form.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-profile-update-phone-validation.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-profile-update.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/localhost-3000-user-forward-email.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-profile.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-update-card.png"Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-signup2.png "Logo Title Text 1")
 
 
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-user-forward-email.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-user-forward-email.png "Logo Title Text 1")
 
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-user-password.png "Logo Title Text 1")
-[Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-whois.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-user-password.png "Logo Title Text 1")
+![Subscriptions](https://github.com/ChickenKyiv/creative/blob/master/saas/stripe-a.herokuapp.com-whois.png "Logo Title Text 1")
 
 
 
