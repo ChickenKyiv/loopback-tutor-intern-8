@@ -38,11 +38,13 @@ class NewUser extends Component {
 		}).catch(err => {
 			// add raven. and make code below better. looks not cool
 			if(err.response){
+				console.log(err.response)
 				if(err.response.data.error.details.messages.email)
 					alert(err.response.data.error.details.messages.email)
 				else if(err.response.data.error.details.messages.username)
 					alert(err.response.data.error.details.messages.username)
-				console.log(err.response.data.error.message + " Error at signup");
+				else
+					console.log(err.response + " Error at signup");
 			}
 			else
 				console.log(err)

@@ -99,7 +99,7 @@ class UsersInfo extends Component {
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',
-			url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+			url: API_ROOT + `/api/userData/invite?access_token=${at}`,
 			data: {
 				email: this.refs.email.value,
 				user: this.state.userdata

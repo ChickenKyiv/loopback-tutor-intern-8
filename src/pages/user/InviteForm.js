@@ -7,7 +7,12 @@ import axios from 'axios'
 
 class InviteForm extends Component {
 
-
+	constructor() {
+		super();
+		this.state = {
+			userdata: {}
+		}
+	}
 	generateUrl (accessToken) {	
 			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
 	}
@@ -16,26 +21,32 @@ class InviteForm extends Component {
 		e.preventDefault();
 		console.log("entered email is: " + this.refs.email.value )
 		let at = sessionStorage.getItem("accessToken");
-		axios.request({
-			method: 'post',
-			url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
-			data: {
-				email: this.refs.email.value,
-				user: {								//need to get the user's name here somehow
-					firstName: "testfirstname",
-					lastName: "testlastname"
+		let userId = sessionStorage.getItem("userId");
+		axios.get(API_ROOT + `/api/userData/${userId}?access_token=${at}`)
+		.then(response => {
+			this.setState({userdata: response.data})
+			axios.request({
+				method: 'post',
+				url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+				data: {
+					email: this.refs.email.value,
+					user: this.state.userdata
 				}
-			}
-		}).then(response => {
-		//	console.log(response.data);
-			this.props.history.push('/users');
-		}).catch(err => {
-			//@todo add raven. add braces
-			if(err.response)
-				console.log(err.response.data.error.message + "Error at sending invite");
-			else
-				console.log(err)
+			}).then(res => {
+				console.log(res);
+				this.props.history.push('/profile');
+			}).catch(err => {
+				//@todo add raven. add braces
+				if(err.response)
+					console.log(err.response.data.error.message + "Error at sending invite");
+				else
+					console.log(err)
+			});
+		})
+		.catch(error => {
+			console.log(error + "Error in getting user data")
 		});
+
 
 	}
 
