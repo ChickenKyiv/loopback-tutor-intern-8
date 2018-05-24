@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Checkout from './Checkout'
+import Checkout from '../Checkout/Checkout'
 
 class Plans extends Component {
 

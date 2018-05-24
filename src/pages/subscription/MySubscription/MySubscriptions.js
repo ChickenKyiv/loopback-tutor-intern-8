@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Plans from './Plans'
+import Plans from '../Plans/Plans'
 //import axios from 'axios';
 
 

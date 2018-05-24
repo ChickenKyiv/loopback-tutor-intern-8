@@ -7,7 +7,7 @@ import Cart from '../../pages/Cart';
 import ChangePassword from '../../pages/user/ChangePassword';
 import ChangePasswordResponse from '../../pages/user/ChangePasswordResponse';
 import Home from '../../pages/Home';
-import MySubscriptions from '../../pages/subscription/MySubscriptions';
+import MySubscriptions from '../../pages/subscription/MySubscription/MySubscriptions';
 import NewUser from '../../pages/user/NewUser';
 import p404 from '../../pages/Page404';
 import ResetPasswordForm from '../../pages/user/ResetPasswordForm';
