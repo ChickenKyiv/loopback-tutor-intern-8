@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { API_ROOT } from '../../utils/api-config-sample'
-
+import getUserData from '../../helpers/getUserData'
 
 class UsersInfo extends Component {
 
@@ -119,14 +119,23 @@ class UsersInfo extends Component {
 		let accessToken = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
 		//console.log(userId);
-		axios.get(API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`)
+		getUserData(userId, accessToken)
 		.then(response => {
-			this.setState({userdata: response.data})
-			sessionStorage.setItem("email",response.data.email);
+			console.log(response)
+			this.setState({userdata: response})
+			sessionStorage.setItem("email",response.email);
 		})
 		.catch(error => {
 			console.log(error + "Error in getting user data")
 		});
+		// axios.get(API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`)
+		// .then(response => {
+		// 	this.setState({userdata: response.data})
+		// 	sessionStorage.setItem("email",response.data.email);
+		// })
+		// .catch(error => {
+		// 	console.log(error + "Error in getting user data")
+		// });
 	}
 
 	renderNormal() {
