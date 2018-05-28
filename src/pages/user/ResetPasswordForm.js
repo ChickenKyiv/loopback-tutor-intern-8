@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { API_ROOT } from '../../utils/api-config-sample'
+import { API_ROOT } from '../../utils/api-config'
 
 
 class ChangePassword extends Component {

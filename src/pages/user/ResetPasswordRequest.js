@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-import { API_ROOT } from '../../utils/api-config-sample'
+import { API_ROOT } from '../../utils/api-config'
 
 
 class ForgotPassword extends Component {

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { API_ROOT } from '../../utils/api-config-sample'
-import getUserData from '../../helpers/getUserData'
+import { API_ROOT } from '../../utils/api-config'
+import fetchUserData from '../../helpers/fetchUserData'
+import inviteUser from '../../helpers/inviteUser'
 
 class UsersInfo extends Component {
 
@@ -97,21 +98,40 @@ class UsersInfo extends Component {
 		e.preventDefault();
 		console.log("entered email is: "+this.refs.email.value)
 		let at = sessionStorage.getItem("accessToken");
-		axios.request({
-			method: 'post',
-			url: API_ROOT + `/api/userData/invite?access_token=${at}`,
-			data: {
-				email: this.refs.email.value,
-				user: this.state.userdata
-			}
-		}).then(response => {
-			console.log("success " + response.data);
-		}).catch(err => {
-			if(err.response)
-				console.log(err.response.data.error.message + "Error at sending invite");
-			else
-				console.log(err)
+		let userId = sessionStorage.getItem("userId");
+		fetchUserData(userId, at)
+		.then(response => {
+			// console.log(response)
+			this.setState({userdata: response})
+			inviteUser(this.refs.email.value, this.state.userdata, at)
+			.then(res => {
+				console.log(res);
+				this.props.history.push('/profile');
+			}).catch(err => {
+				if(err.response)
+					console.log(err.response.data.error.message + "Error at sending invite");
+				else
+					console.log(err)
+			})
+		})
+		.catch(error => {
+			console.log(error + "Error in getting user data")
 		});
+		// axios.request({
+		// 	method: 'post',
+		// 	url: API_ROOT + `/api/userData/invite?access_token=${at}`,
+		// 	data: {
+		// 		email: this.refs.email.value,
+		// 		user: this.state.userdata
+		// 	}
+		// }).then(response => {
+		// 	console.log("success " + response.data);
+		// }).catch(err => {
+		// 	if(err.response)
+		// 		console.log(err.response.data.error.message + "Error at sending invite");
+		// 	else
+		// 		console.log(err)
+		// });
 
 	}
 
@@ -119,9 +139,9 @@ class UsersInfo extends Component {
 		let accessToken = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
 		//console.log(userId);
-		getUserData(userId, accessToken)
+		fetchUserData(userId, accessToken)
 		.then(response => {
-			console.log(response)
+			// console.log(response)
 			this.setState({userdata: response})
 			sessionStorage.setItem("email",response.email);
 		})

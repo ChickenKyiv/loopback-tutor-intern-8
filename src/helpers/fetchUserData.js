@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_ROOT } from '../utils/api-config-sample'
+import { API_ROOT } from '../utils/api-config'
 
 const getUserData = (userId, accessToken) => {
   return new Promise((resolve, reject) => {

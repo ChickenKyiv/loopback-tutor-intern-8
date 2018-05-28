@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { API_ROOT } from '../../utils/api-config-sample'
-import axios from 'axios'
+// import { API_ROOT } from '../../utils/api-config'
+import fetchUserData from '../../helpers/fetchUserData'
+import inviteUser from '../../helpers/inviteUser'
+//import axios from 'axios'
 
 
 
@@ -13,39 +15,57 @@ class InviteForm extends Component {
 			userdata: {}
 		}
 	}
-	generateUrl (accessToken) {	
-			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
-	}
+	// generateUrl (accessToken) {	
+	// 		return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
+	// }
 
 	send (e){
 		e.preventDefault();
 		console.log("entered email is: " + this.refs.email.value )
 		let at = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
-		axios.get(API_ROOT + `/api/userData/${userId}?access_token=${at}`)
+		fetchUserData(userId, at)
 		.then(response => {
-			this.setState({userdata: response.data})
-			axios.request({
-				method: 'post',
-				url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
-				data: {
-					email: this.refs.email.value,
-					user: this.state.userdata
-				}
-			}).then(res => {
-				console.log(res);
+			// console.log(response)
+			this.setState({userdata: response})
+			inviteUser(this.refs.email.value, this.state.userdata, at)
+			.then(res => {
+		// 		console.log(res);
 				this.props.history.push('/profile');
 			}).catch(err => {
-				//@todo add raven. add braces
 				if(err.response)
 					console.log(err.response.data.error.message + "Error at sending invite");
 				else
 					console.log(err)
-			});
+			})
 		})
 		.catch(error => {
 			console.log(error + "Error in getting user data")
 		});
+		// axios.get(API_ROOT + `/api/userData/${userId}?access_token=${at}`)
+		// .then(response => {
+		// 	this.setState({userdata: response.data})
+		// 	axios.request({
+		// 		method: 'post',
+		// 		url: API_ROOT + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+		// 		data: {
+		// 			email: this.refs.email.value,
+		// 			user: this.state.userdata
+		// 		}
+		// 	}).then(res => {
+		// 		console.log(res);
+		// 		this.props.history.push('/profile');
+		// 	}).catch(err => {
+		// 		//@todo add raven. add braces
+		// 		if(err.response)
+		// 			console.log(err.response.data.error.message + "Error at sending invite");
+		// 		else
+		// 			console.log(err)
+		// 	});
+		// })
+		// .catch(error => {
+		// 	console.log(error + "Error in getting user data")
+		// });
 
 
 	}

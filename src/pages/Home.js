@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { API_ROOT } from '../utils/api-config-sample'
+import { API_ROOT } from '../utils/api-config'
 import axios from 'axios'
 
 class Home extends Component {
