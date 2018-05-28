@@ -1,10 +1,9 @@
 import React from 'react'
-import { renderer } from 'react-test-renderer'
+import { shallow } from 'enzyme'
 import About from '../Home'
 
 it('About renders correctly', () => {
-	console.log(<About/>)
-	const rendered = renderer.create(<About />);
+	const wrapper = shallow(<About />);
 
-    expect(rendered.toJSON()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
 })
