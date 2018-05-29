@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Plans from '../Plans/Plans'
-//import axios from 'axios';
-
 
 class MySubscriptions extends Component {
 
@@ -32,7 +30,6 @@ class MySubscriptions extends Component {
 			</div>
 		);
 	}
-
 }
 
 export default MySubscriptions

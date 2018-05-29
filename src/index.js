@@ -9,7 +9,7 @@ import { sentry_url } from './ravenconfig';
 // console.log(Raven);
 // @todo maybe we should run install at ravenconfig? This has to be done here
 
-// Raven.config(sentry_url).install();
+Raven.config(sentry_url).install();
 
 const rootElement = document.getElementById('root')
 

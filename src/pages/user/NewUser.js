@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { API_ROOT } from '../../utils/api-config'
+import signupNewUser from '../../helpers/signupNewUser';
 
 class NewUser extends Component {
 
@@ -28,11 +27,8 @@ class NewUser extends Component {
 	//handle this part with backend method to verify the user email
 	//CALL TO ADD USER DATA IN DATABASE
 
-		axios.request({
-		method: 'post',
-		url: API_ROOT + '/api/userData',//url:'http://localhost:3000/api/Users' if it is not extended in any class
-		data: newUser
-		}).then(respons => {
+		signupNewUser(newUser)
+		.then(response => {
 		//	console.log("This is response-->>"+respons.data);//can get userId from this response object
 			this.props.history.push('/verify');//tell user to verify email first
 		}).catch(err => {

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { API_ROOT } from '../../utils/api-config'
+import logoutUser from '../../helpers/logoutUser';
 
 class LogOutUser extends Component {
 
 	logOutUser(){
 		let at = sessionStorage.getItem("accessToken");
 
-		axios.request({
-			method: 'post',
-			url: API_ROOT + `/api/userData/logout?access_token=${at}`
-		}).then(response => {
+		logoutUser(at)
+		.then(response => {
 			console.log(response.data);
 			sessionStorage.removeItem("accessToken");
 			sessionStorage.removeItem("userId");
@@ -20,7 +17,6 @@ class LogOutUser extends Component {
 			console.log(sessionStorage.getItem("accessToken"));
 			this.props.history.push('/');
 		}).catch(err => {
-			//@todo add raven. add braces
 			if(err.response)
 				console.log(err.response.data.error.message + "Error in logging out user")
 			else

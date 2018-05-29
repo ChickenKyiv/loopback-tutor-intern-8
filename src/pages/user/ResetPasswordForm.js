@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-import { API_ROOT } from '../../utils/api-config'
-
+import resetPasswordRequest from '../../helpers/resetPasswordRequest'
 
 class ChangePassword extends Component {
 
@@ -18,12 +16,9 @@ class ChangePassword extends Component {
 		e.preventDefault();
 		console.log( "entered pass is: " + this.refs.password.value +
 		", entered cpass is: " + this.refs.cpassword.value )
-		axios.request({
-			method: 'post',
-			// @todo i don't like this long url
-			url: API_ROOT + `/api/userData/reset-password${window.location.search}`,//?access_token=${this.props.params.access_token}`,
-			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
-		}).then(response => {
+		let at = window.location.search;
+		resetPasswordRequest(this.refs.password.value, at)
+		.then(response => {
 			console.log(response.data);
 			this.props.history.push('/changeresponse');
 		}).catch(err => {
@@ -32,7 +27,6 @@ class ChangePassword extends Component {
 			else
 				console.log(err)
 		});
-
 	}
 
 	render() {
@@ -46,7 +40,7 @@ class ChangePassword extends Component {
 						<input type="password" name="password" ref="password" id="password" />
 						<br />
 						<label>Confirm New Password</label>
-						<input type="cpassword" name="cpassword" ref="cpassword" id="cpassword" />
+						<input type="password" name="cpassword" ref="cpassword" id="cpassword" />
 						<br />
 						<input type="submit" value="Reset Password" />
 					</form>

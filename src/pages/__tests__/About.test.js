@@ -2,8 +2,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import About from '../Home'
 
-it('About renders correctly', () => {
-	const wrapper = shallow(<About />);
+describe('About component', () => {
+	it('About renders correctly', () => {
+		const wrapper = shallow(<About />);
 
-    expect(wrapper).toMatchSnapshot();
+	    expect(wrapper).toMatchSnapshot();
+	})
 })

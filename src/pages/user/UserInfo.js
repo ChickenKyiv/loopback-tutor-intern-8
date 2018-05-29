@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { API_ROOT } from '../../utils/api-config'
+import deleteUserAccount from '../../helpers/deleteUserAccount'
 import fetchUserData from '../../helpers/fetchUserData'
 import inviteUser from '../../helpers/inviteUser'
+import updateUserDetails from '../../helpers/updateUserDetails'
 
 class UsersInfo extends Component {
 
@@ -19,11 +19,6 @@ class UsersInfo extends Component {
 		this.getUsersData();
 	}
 
-	generateUrl (accessToken) {
-		// @todo i still don't like this long line, but not sure if it can be improved well right now
-			return API_ROOT + `/api/userData/invite?access_token=${accessToken}`
-	}
-
 	deleteAccount (e){
 		e.preventDefault();
 		let del = window.confirm("Do you really want to delete your account? This is an irreversible process and"+
@@ -34,10 +29,8 @@ class UsersInfo extends Component {
 			let userId      = sessionStorage.getItem("userId");
 			let accessToken = sessionStorage.getItem("accessToken");
 
-			axios.request({
-				method: 'delete',
-				url: API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`
-			}).then(response => {
+			deleteUserAccount(userId, accessToken)
+			.then(response => {
 				console.log(response)
 				sessionStorage.removeItem("accessToken");
 				sessionStorage.removeItem("userId");
@@ -45,7 +38,6 @@ class UsersInfo extends Component {
 				this.props.history.push('logout')
 			}).catch(err => {
 				console.log(err)
-				//@todo add raven
 			})
 		}
 		else
@@ -77,28 +69,25 @@ class UsersInfo extends Component {
 	save() {
 		let userId = sessionStorage.getItem("userId");
 		let accessToken = sessionStorage.getItem("accessToken");
-		let updateurl = API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`;
 		let user = {
 			"firstName": this.refs.fname.value,
 			"lastName": this.refs.lname.value
 		//	email: this.refs.email.value		//solve the issue of email verification after changing
 		}
-		axios.request({
-			method: 'patch',
-			url: updateurl,//url called to update the data
-			data: user
-		}).then(response => {
+		updateUserDetails(userId, user, accessToken)
+		.then(response => {
 			console.log(user)
 			console.log("Success updating user data")
 		}).catch(err => console.log(err))
 		this.setState({editing:false});
 	}
-//move to invite.js after successful
+//keep here if separate page not needed
 	send (e){
 		e.preventDefault();
 		console.log("entered email is: "+this.refs.email.value)
 		let at = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
+
 		fetchUserData(userId, at)
 		.then(response => {
 			// console.log(response)
@@ -117,22 +106,6 @@ class UsersInfo extends Component {
 		.catch(error => {
 			console.log(error + "Error in getting user data")
 		});
-		// axios.request({
-		// 	method: 'post',
-		// 	url: API_ROOT + `/api/userData/invite?access_token=${at}`,
-		// 	data: {
-		// 		email: this.refs.email.value,
-		// 		user: this.state.userdata
-		// 	}
-		// }).then(response => {
-		// 	console.log("success " + response.data);
-		// }).catch(err => {
-		// 	if(err.response)
-		// 		console.log(err.response.data.error.message + "Error at sending invite");
-		// 	else
-		// 		console.log(err)
-		// });
-
 	}
 
 	getUsersData() {
@@ -148,14 +121,6 @@ class UsersInfo extends Component {
 		.catch(error => {
 			console.log(error + "Error in getting user data")
 		});
-		// axios.get(API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`)
-		// .then(response => {
-		// 	this.setState({userdata: response.data})
-		// 	sessionStorage.setItem("email",response.data.email);
-		// })
-		// .catch(error => {
-		// 	console.log(error + "Error in getting user data")
-		// });
 	}
 
 	renderNormal() {
@@ -221,6 +186,6 @@ class UsersInfo extends Component {
 			return <Redirect to="/" />
 		}
 	}
-
 }
+
 export default UsersInfo;

@@ -1,39 +1,29 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios'
-import { API_ROOT } from '../../utils/api-config'
+import loginUser from '../../helpers/loginUser';
 
 class LogInUser extends Component {
 
-
 	onSubmit(e) {
-
 		const user = {
 			username: this.refs.username.value,
 		//	email: this.refs.email.value,
 			password: this.refs.password.value
-
 		}
 
 		this.submitUser(user);
 		e.preventDefault();
-
 	}
 
 	submitUser(user){
-		axios.request({
-			method: 'post',
-			url: API_ROOT + '/api/userData/login',//url:'http://localhost:3000/api/Users/login',
-			data: user
-		}).then(response => {
-
+		loginUser(user)
+		.then(response => {
 			sessionStorage.setItem("accessToken",response.data.id);
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
 			//console.log("Token:"+sessionStorage.getItem("accessToken"));
 			this.props.history.push('/profile');//push the page you want to display
 		}).catch(err => {
-			//@add raven and make this function better
 			if(err.response.data.error.message){
 				alert(err.response.data.error.message + " Please check the username and password")
 				console.log(err.response.data.error.message)
@@ -45,11 +35,6 @@ class LogInUser extends Component {
 		});
 	}
 
-	getGoogleLogin() {
-		axios.get(API_ROOT + '/auth/google')
-		.then(response => console.log(response.data))
-		.catch(err => console.log(err))
-	}
 	// @todo don't know why thie url doesnt work
 	renderNormal() {
 		//document.getElementById('google').href = API_ROOT + "/auth/google";
