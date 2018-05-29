@@ -165,24 +165,24 @@ module.exports = function(Userdata) {
   });
 
   //render UI page after password change not required if react implementation works
-  Userdata.afterRemote('changePassword', function(context, user, next) {
-    context.res.render('response', {
-      title: 'Password changed successfully',
-      content: 'Please login again with new password',
-      redirectTo: '/',
-      redirectToLinkText: 'Log in'
-    });
-  });
+  // Userdata.afterRemote('changePassword', function(context, user, next) {
+  //   context.res.render('response', {
+  //     title: 'Password changed successfully',
+  //     content: 'Please login again with new password',
+  //     redirectTo: '/',
+  //     redirectToLinkText: 'Log in'
+  //   });
+  // });
 
-  //render UI page after password reset
-  Userdata.afterRemote('setPassword', function(context, user, next) {
-    context.res.render('response', {
-      title: 'Password reset success',
-      content: 'Your password has been reset successfully',
-      redirectTo: '/',
-      redirectToLinkText: 'Log in'
-    });
-  });
+  // //render UI page after password reset
+  // Userdata.afterRemote('setPassword', function(context, user, next) {
+  //   context.res.render('response', {
+  //     title: 'Password reset success',
+  //     content: 'Your password has been reset successfully',
+  //     redirectTo: '/',
+  //     redirectToLinkText: 'Log in'
+  //   });
+  // });
 };
 
 /*Settings for gmail
