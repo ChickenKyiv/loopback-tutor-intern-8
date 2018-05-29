@@ -13,7 +13,7 @@ if(process.env.NODE_ENV == 'production'){
   const ravenurl = 'https://' + process.env.REACT_APP_SENTRY_KEY + '@sentry.io/' + process.env.REACT_APP_SENTRY_APP;
   Raven.config(ravenurl).install();
 }
-else{//if not required in development then you can remove this
+else {//if not required in development then you can remove this
   Raven.config('https://77aa2ee9a7ce484497f56278982a0809@sentry.io/305339').install();
 }
 
