@@ -38,7 +38,7 @@
     "stripe": "^6.0.0",
     "strong-error-handler": "^2.0.0",
     "underscore": "^1.9.0",
-    "webpack": "^4.9.1",
+    "webpack": "^4.10.0",
     "webpack-cli": "^2.1.4"
   },
   "devDependencies": {
