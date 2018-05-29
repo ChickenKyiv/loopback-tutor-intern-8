@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { API_ROOT } from '../utils/api-config'
 
-const getUserData = (userId, accessToken) => {
+const fetchUserData = (userId, accessToken) => {
   return new Promise((resolve, reject) => {
     axios.get(API_ROOT + `/api/userData/${userId}?access_token=${accessToken}`)
       .then((response) => {
@@ -13,4 +13,4 @@ const getUserData = (userId, accessToken) => {
       })
     })
 }
-export default getUserData
+export default fetchUserData
