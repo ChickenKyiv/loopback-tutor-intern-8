@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from 'react-router-dom';
+
 import About  from '../../pages/About';
 import acc    from '../../pages/user/Authacc';
 import Cart   from '../../pages/Cart';
@@ -27,6 +32,7 @@ class Main extends Component {
 		return (
 			<div>
 			<main>
+			<Router>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/auth/account" component={acc} />
@@ -56,6 +62,7 @@ class Main extends Component {
 					<Route path="/about"    component={About} />
 					<Route exact path="*"   component={p404} />
 				</Switch>
+				</Router>
 				</main>
 			</div>
 		);
