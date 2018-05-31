@@ -2,9 +2,6 @@ import Raven from 'raven-js'
 
 export const sentry_url = `https://${process.env.REACT_APP_SENTRY_KEY}@sentry.io/${process.env.REACT_APP_SENTRY_APP}`;
 
-Raven.config(sentry_url).install();
-
-
 export function logException(ex, context) {
 	Raven.captureException(ex, { extra: context });
 	console.error && console.error(ex);

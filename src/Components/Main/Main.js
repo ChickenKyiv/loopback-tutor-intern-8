@@ -8,7 +8,6 @@ import {
 import About  from '../../pages/About';
 import acc    from '../../pages/user/Authacc';
 import Cart   from '../../pages/Cart';
-//import Checkout from '../../pages/Checkout';
 import ChangePassword from '../../pages/user/ChangePassword';
 import ChangePasswordResponse from '../../pages/user/ChangePasswordResponse';
 import Home from '../../pages/Home';
@@ -37,10 +36,7 @@ class Main extends Component {
 					<Route exact path="/" component={Home} />
 					<Route path="/auth/account" component={acc} />
 					<Route path="/cart" component={Cart} />
-					{/*
-						where is checkout form?
-						<Route path="/checkout" component={Checkout} />
-				 */}
+
 				 <Route path="/mysub"   component={MySubscriptions} />
 				 <Route path="/adduser" component={NewUser} />
 				 <Route path="/profile" component={UserInfo} />

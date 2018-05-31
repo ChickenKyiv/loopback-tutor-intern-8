@@ -3,9 +3,14 @@ import ReactDOM  from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 //import { unregister } from './registerServiceWorker';
-
 import registerServiceWorker from './registerServiceWorker';
-import { logException } from '../ravenconfig'
+
+//Raven has to be installed here only no where else
+import { logException } from './ravenconfig'
+import Raven from 'raven-js';
+import { sentry_url } from './ravenconfig';
+
+// Raven.config(sentry_url).install();
 
 const rootElement = document.getElementById('root')
 
