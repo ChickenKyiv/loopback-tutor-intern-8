@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import PublicNavbar        from '../NavBar/PublicNavBar/PublicNavBar'
-import AuthenticatedNavbar from '../NavBar/AuthenticatedNavBar/AuthenticatedNavBar'
+import PublicNavbar         from '../NavBar/PublicNavBar/PublicNavBar'
+import AuthenticatedNavbar  from '../NavBar/AuthenticatedNavBar/AuthenticatedNavBar'
 //import { Link } from 'react-router-dom';
 
 // <Link to="/about">About</Link>
