@@ -18,7 +18,7 @@ class Header extends Component {
 
 	render(){
 		let check = JSON.parse( sessionStorage.getItem("isLoggedIn") );
-		//@todo update to ternary operator UPDATED
+		
 		return (
 			check ? <AuthenticatedNavbar /> : <PublicNavbar />
 		);
