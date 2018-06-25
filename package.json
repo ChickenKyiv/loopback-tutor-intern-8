@@ -39,7 +39,7 @@
     "strong-error-handler": "^2.0.0",
     "underscore": "^1.9.1",
     "webpack": "^4.12.1",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^3.0.8"
   },
   "devDependencies": {
     "eslint": "^5.0.0",
