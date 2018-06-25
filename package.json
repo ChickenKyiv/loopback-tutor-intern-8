@@ -29,7 +29,7 @@
     "loopback-component-explorer": "^6.0.1",
     "loopback-component-passport": "^3.9.0",
     "loopback-connector-mongodb": "^3.4.4",
-    "nodemailer": "^4.6.5",
+    "nodemailer": "^4.6.7",
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth2": "^0.1.6",
     "passport-twitter": "^1.0.4",
