@@ -33,7 +33,7 @@
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth2": "^0.1.6",
     "passport-twitter": "^1.0.4",
-    "raven-js": "^3.26.3",
+    "raven-js": "^3.27.0",
     "serve-favicon": "^2.0.1",
     "stripe": "^6.1.1",
     "strong-error-handler": "^3.0.0",
